@@ -1,6 +1,6 @@
 package model.enums;
 
-public enum DriverLicence {
+public enum DrivingLicenceCategories {
     AM,
     A1,
     A2,

@@ -39,13 +39,8 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void modifyById(Integer Id, Order newOrder) {
 
-        Optional<Order> order = OrderList.stream()
-                .filter(object -> Id.equals(object.getOrderId()))
-                .findFirst();
-        if(order.isPresent()) {
-            order = Optional.ofNullable(newOrder);
-
-        }
+        removeById(Id);
+        addOnlyOne(newOrder);
 
     }
     @Override

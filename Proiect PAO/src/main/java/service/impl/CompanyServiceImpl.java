@@ -1,10 +1,8 @@
 package service.impl;
 
-import model.Client;
 import model.Company;
 import model.Driver;
 import model.Person;
-import model.enums.DriverLicence;
 import service.CompanyService;
 
 import java.util.*;
@@ -73,7 +71,7 @@ public class CompanyServiceImpl implements CompanyService {
     public void changePresident(Integer Id, Person newPresident) {
         for (Company company : CompanyList) {
             if (company.getCompanyId() == Id) {
-                company.setPresident(newPresident);
+                company.setOwner(newPresident);
             }
         }
     }
@@ -92,7 +90,7 @@ public class CompanyServiceImpl implements CompanyService {
         for (Company company : CompanyList) {
             if (company.getCompanyId() == Id) {
                 List<Driver> drivers = company.getDriverList();
-                Collections.sort(drivers, Comparator.comparing(d -> d.getDriverLicence().size()));
+                Collections.sort(drivers, Comparator.comparing(d -> d.getDrivingLicenceCategories().size()));
                 Collections.reverse(drivers);
                 company.setDriverList(drivers);
             }

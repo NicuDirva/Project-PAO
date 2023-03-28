@@ -2,7 +2,7 @@ package service;
 
 
 import model.Driver;
-import model.enums.DriverLicence;
+import model.enums.DrivingLicenceCategories;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,5 +20,5 @@ public interface DriverService {
 
     void changePhoneNumber(Integer Id, String newPhoneNumber);
     void changeMail(Integer Id, String newMail);
-    void addDriverLicence(Integer Id, DriverLicence newLicence);
+    void addDriverLicence(Integer Id, DrivingLicenceCategories newLicence);
 }

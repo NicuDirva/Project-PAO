@@ -2,7 +2,7 @@ package service.impl;
 
 
 import model.Driver;
-import model.enums.DriverLicence;
+import model.enums.DrivingLicenceCategories;
 import service.DriverService;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,12 +64,12 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public void addDriverLicence(Integer Id, DriverLicence newLicence) {
+    public void addDriverLicence(Integer Id, DrivingLicenceCategories newLicence) {
         for (Driver driver : DriverList) {
             if (driver.getDriverId() == Id) {
-                Set<DriverLicence> currentDriverLicence =  driver.getDriverLicence();
-                currentDriverLicence.add(newLicence);
-                driver.setDriverLicence(currentDriverLicence);
+                Set<DrivingLicenceCategories> currentDrivingLicenceCategories =  driver.getDrivingLicenceCategories();
+                currentDrivingLicenceCategories.add(newLicence);
+                driver.setDrivingLicenceCategories(currentDrivingLicenceCategories);
             }
         }
     }

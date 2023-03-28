@@ -3,7 +3,7 @@ package model;
 import java.util.Set;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import model.enums.DriverLicence;
+import model.enums.DrivingLicenceCategories;
 
 @Getter
 @Setter
@@ -19,14 +19,14 @@ public class Driver extends Person{
     private String Mail;
 
     private String DriverLicenceDate;
-    private Set<DriverLicence> DriverLicence;
+    private Set<DrivingLicenceCategories> DrivingLicenceCategories;
 
-    public Driver(Integer PersonId, String FirstName, String LastName, String DateOfBird, String Gender, Integer driverId, Integer personId, String phoneNumber, String mail, String driverLicenceDate, Set<model.enums.DriverLicence> driverLicence) {
+    public Driver(Integer PersonId, String FirstName, String LastName, String DateOfBird, String Gender, Integer driverId, String phoneNumber, String mail, String driverLicenceDate, Set<DrivingLicenceCategories> drivingLicenceCategories) {
         super(PersonId, FirstName, LastName, DateOfBird, Gender);
         DriverId = driverId;
         PhoneNumber = phoneNumber;
         Mail = mail;
         DriverLicenceDate = driverLicenceDate;
-        DriverLicence = driverLicence;
+        DrivingLicenceCategories = drivingLicenceCategories;
     }
 }
