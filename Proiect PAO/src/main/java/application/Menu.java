@@ -18,13 +18,11 @@ public class Menu {
     private final CarService carService = new CarServiceImpl();
     private final ClientService clientService = new ClientServiceImpl();
     private final CompanyService companyService = new CompanyServiceImpl();
-    private final DiscountCouponService discountCouponService = new DiscountCouponServiceImpl();
     private final DriverService driverService = new DriverServiceImpl();
     private final LocationService locationService = new LocationServiceImpl();
     private final OrderReviewService orderReviewService = new OrderReviewImpl();
     private final OrderService orderService = new OrderServiceImpl();
     private final PersonService personService = new PersonServiceImpl();
-    private final PremiumPackageService premiumPackageService = new PremiumPackageServiceImpl();
 
     public static Menu getInstance() {
         return (INSTANCE == null ? new Menu() : INSTANCE);
@@ -127,8 +125,8 @@ public class Menu {
         cout("5 - Location operation\n");
         cout("6 - Order operation\n");
         cout("7 - OrderReview operation\n");
-        cout("8 - PremiumPackage operation\n");
-        cout("8 - Exit\n");
+        cout("8 - Person operation\n");
+        cout("9 - Exit\n");
         cout("Read the number associated with the desire option: ");
 
         int choice = new Scanner(System.in).nextInt();
@@ -966,33 +964,189 @@ public class Menu {
                     case 1:
                         cout("************************************************************************************************************************\n\n");
 
-                        cout("Personal id (Integer): ");
-                        Integer id_m = new Scanner(System.in).nextInt();
+                        cout("Location id (Integer): ");
+                        Integer id_l = new Scanner(System.in).nextInt();
+                        cout("City (String): ");
+                        String city = String.valueOf(new Scanner(System.in));
+                        cout("Street (String): ");
+                        String street = String.valueOf(new Scanner(System.in));
+                        cout("Number (Integer): ");
+                        Integer number = new Scanner(System.in).nextInt();
+
+                        Location loc = new Location(id_l, city, street, number);
+                        locationService.addOnlyOne(loc);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 2:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Id location:");
+                        Integer Id_l = new Scanner(System.in).nextInt();
+                        Optional <Location> loc_aff = locationService.getById(Id_l);
+
+                        if(loc_aff.isPresent()) {
+
+                            cout("************************************************************************************************************************\n\n");
+                            cout(loc_aff);
+                            cout("************************************************************************************************************************\n\n");
+
+                        }
+                        else {
+                            cout("Id does't exist!");
+                        }
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 3:
+                        List<Location> list = locationService.getAll();
+
+                        cout("************************************************************************************************************************\n\n");
+
+                        for (Location locc : list) {
+                            cout(locc);
+                        }
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 4:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Location id (Integer): ");
+                        Integer id_ll = new Scanner(System.in).nextInt();
                         cout("Read new date:");
-                        cout("Personal id (Integer): ");
-                        Integer new_personal_id = new Scanner(System.in).nextInt();
-                        cout("First name (String): ");
-                        String new_driver_fn = String.valueOf(new Scanner(System.in));
-                        cout("Last name (String): ");
-                        String new_driver_ln = String.valueOf(new Scanner(System.in));
-                        cout("Date of bird (String): ");
-                        String new_driver_date = String.valueOf(new Scanner(System.in));
-                        cout("Gender (String): ");
-                        String new_gender_d = String.valueOf(new Scanner(System.in));
-                        cout("Driver id (Integer): ");
-                        Integer new_driver_id = new Scanner(System.in).nextInt();
-                        cout("Phone Number (String): ");
-                        String new_phoneNumber = String.valueOf(new Scanner(System.in));
-                        cout("Mail (String): ");
-                        String new_mail = String.valueOf(new Scanner(System.in));
-                        cout("Driver licence date (String): ");
-                        String new_driverLicenceDate = String.valueOf(new Scanner(System.in));
+                        cout("Location id (Integer): ");
+                        Integer new_id_l = new Scanner(System.in).nextInt();
+                        cout("City (String): ");
+                        String new_city = String.valueOf(new Scanner(System.in));
+                        cout("Street (String): ");
+                        String new_street = String.valueOf(new Scanner(System.in));
+                        cout("Number (Integer): ");
+                        Integer new_number = new Scanner(System.in).nextInt();
+
+                        Location new_loc = new Location(new_id_l, new_city, new_street, new_number);
+                        locationService.modifyById(id_ll, new_loc);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 5:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Location id (Integer): ");
+                        Integer id_lll = new Scanner(System.in).nextInt();
+                        locationService.removeById(id_lll);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 6:
+                        break;
                 }
 
+            case 6:
 
+            case 7:
+                cout("************************************************************************************************************************\\n");
+                cout("Choose an option: \n\n");
+                cout("1 - Add a order review\n");
+                cout("2 - Display o order review by id\n");
+                cout("3 - Display all orders review\n");
+                cout("4 - Modify a order review\n");
+                cout("5 - Delete a order review\n");
+                cout("6 - Back\n");
+                cout("Read the number associated with the desire option: ");
 
+                int choice_or_1 = new Scanner(System.in).nextInt();
 
+                cout("\n\n");
+                cout("************************************************************************************************************************\n\n");
 
+                switch (choice_or_1) {
+                    case 1:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("OrderReview id (Integer): ");
+                        Integer id_r = new Scanner(System.in).nextInt();
+                        cout("Order id (Integer): ");
+                        Integer id_ord = new Scanner(System.in).nextInt();
+                        cout("Number of star id (Integer): ");
+                        Integer nr_stars = new Scanner(System.in).nextInt();
+                        cout("Complaints (Integer): ");
+                        String complaints = String.valueOf(new Scanner(System.in));
+
+                        OrderReview ord_rev = new OrderReview(id_r, id_ord, nr_stars, complaints);
+                        orderReviewService.addOnlyOne(ord_rev);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 2:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Id order review:");
+                        Integer Id_or = new Scanner(System.in).nextInt();
+                        Optional <OrderReview> or_aff = orderReviewService.getById(Id_or);
+
+                        if(or_aff.isPresent()) {
+
+                            cout("************************************************************************************************************************\n\n");
+                            cout(or_aff);
+                            cout("************************************************************************************************************************\n\n");
+
+                        }
+                        else {
+                            cout("Id does't exist!");
+                        }
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 3:
+                        List<OrderReview> list = orderReviewService.getAll();
+
+                        cout("************************************************************************************************************************\n\n");
+
+                        for (OrderReview or : list) {
+                            cout(or);
+                        }
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 4:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Order review id (Integer): ");
+                        Integer new_id_or = new Scanner(System.in).nextInt();
+                        cout("Read new date:");
+                        cout("OrderReview id (Integer): ");
+                        Integer new_id_r = new Scanner(System.in).nextInt();
+                        cout("Order id (Integer): ");
+                        Integer new_id_ord = new Scanner(System.in).nextInt();
+                        cout("Number of star id (Integer): ");
+                        Integer new_nr_stars = new Scanner(System.in).nextInt();
+                        cout("Complaints (Integer): ");
+                        String new_complaints = String.valueOf(new Scanner(System.in));
+
+                        OrderReview new_or = new OrderReview(new_id_r, new_id_ord, new_nr_stars, new_complaints);
+                        orderReviewService.modifyById(new_id_or, new_or);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 5:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Order review id (Integer): ");
+                        Integer id_orr = new Scanner(System.in).nextInt();
+                        orderReviewService.removeById(id_orr);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 6:
+                        break;
+
+                }
+
+            case 8:
+
+            case 9:
+                break;
         }
     }
 }
