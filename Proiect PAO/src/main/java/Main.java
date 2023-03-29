@@ -19,6 +19,7 @@ public class Main {
             if ("exit".equals(scanner.next())) {
                 break;
             }
+
         }
     }
 

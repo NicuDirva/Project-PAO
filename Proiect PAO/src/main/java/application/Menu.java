@@ -37,49 +37,47 @@ public class Menu {
     public void intro() {
         boolean glb = true;
         while(glb) {
+            cout("************************************************************************************************************************\\n");
+            cout("Choose an option: \n\n");
+            cout("1 - Company operation\n");
+            cout("2 - Client operation\n");
+            cout("3 - Driver operation\n");
+            cout("4 - Car operation\n");
+            cout("5 - Location operation\n");
+            cout("6 - Order operation\n");
+            cout("7 - OrderReview operation\n");
+            cout("8 - Person operation\n");
+            cout("9 - Exit\n");
+            cout("Read the number associated with the desire option: ");
 
-        }
-        cout("************************************************************************************************************************\\n");
-        cout("Choose an option: \n\n");
-        cout("1 - Company operation\n");
-        cout("2 - Client operation\n");
-        cout("3 - Driver operation\n");
-        cout("4 - Car operation\n");
-        cout("5 - Location operation\n");
-        cout("6 - Order operation\n");
-        cout("7 - OrderReview operation\n");
-        cout("8 - Person operation\n");
-        cout("9 - Exit\n");
-        cout("Read the number associated with the desire option: ");
+            int choice = new Scanner(System.in).nextInt();
 
-        int choice = new Scanner(System.in).nextInt();
+            cout("\n\n");
+            cout("************************************************************************************************************************\n\n");
 
-        cout("\n\n");
-        cout("************************************************************************************************************************\n\n");
+            boolean bool_c = true, bool_client = true, bool_driver = true, bool_car = true, bool_location = true, bool_order = true, bool_orderreview = true, bool_person=true;
+            if(choice == 1) {
+                while (bool_c) {
+                    cout("************************************************************************************************************************\\n");
+                    cout("Choose an option: \n\n");
+                    cout("1 - Add a company\n");
+                    cout("2 - Display o company by id\n");
+                    cout("3 - Display all companies\n");
+                    cout("4 - Modify a company\n");
+                    cout("5 - Delete a company\n");
+                    cout("6 - Add new driver in the company\n");
+                    cout("7 - Change the number of employees in the company\n");
+                    cout("8 - Change company name\n");
+                    cout("9 - Sort the drivers in the company\n");
+                    cout("10 - Back\n");
+                    cout("Read the number associated with the desire option: ");
 
-        while (glb) {
-            case 1:
-                cout("************************************************************************************************************************\\n");
-                cout("Choose an option: \n\n");
-                cout("1 - Add a company\n");
-                cout("2 - Display o company by id\n");
-                cout("3 - Display all companies\n");
-                cout("4 - Modify a company\n");
-                cout("5 - Delete a company\n");
-                cout("6 - Add new driver in the company\n");
-                cout("7 - Change the number of employees in the company\n");
-                cout("8 - Change company name\n");
-                cout("9 - Sort the drivers in the company\n");
-                cout("10 - Back\n");
-                cout("Read the number associated with the desire option: ");
+                    int choice_company_1 = new Scanner(System.in).nextInt();
 
-                int choice_company_1 = new Scanner(System.in).nextInt();
+                    cout("\n\n");
+                    cout("************************************************************************************************************************\n\n");
 
-                cout("\n\n");
-                cout("************************************************************************************************************************\n\n");
-
-                switch (choice_company_1) {
-                    case 1:
+                    if (choice_company_1 == 1) {
                         cout("************************************************************************************************************************\\n");
                         cout("Company id (Integer): ");
                         Integer Id = new Scanner(System.in).nextInt();
@@ -153,53 +151,53 @@ public class Menu {
                             for (int j = 0; j < numberLicenceCategories; j++) {
                                 Scanner str14 = new Scanner(System.in);
                                 String cat = str14.nextLine();
-                                    switch (cat) {
-                                        case "AM":
-                                            drivingLicenceCategories.add(DrivingLicenceCategories.AM);
-                                            break;
-                                        case "A1":
-                                            drivingLicenceCategories.add(DrivingLicenceCategories.A1);
-                                            break;
-                                        case "A2":
-                                            drivingLicenceCategories.add(DrivingLicenceCategories.A2);
-                                            break;
-                                        case "A":
-                                            drivingLicenceCategories.add(DrivingLicenceCategories.A);
-                                            break;
-                                        case "B":
-                                            drivingLicenceCategories.add(DrivingLicenceCategories.B);
-                                            break;
-                                        case "B1":
-                                            drivingLicenceCategories.add(DrivingLicenceCategories.B1);
-                                            break;
-                                        case "BE":
-                                            drivingLicenceCategories.add(DrivingLicenceCategories.BE);
-                                            break;
-                                        case "C1":
-                                            drivingLicenceCategories.add(DrivingLicenceCategories.C1);
-                                            break;
-                                        case "C1E":
-                                            drivingLicenceCategories.add(DrivingLicenceCategories.C1E);
-                                            break;
-                                        case "C":
-                                            drivingLicenceCategories.add(DrivingLicenceCategories.C);
-                                            break;
-                                        case "CE":
-                                            drivingLicenceCategories.add(DrivingLicenceCategories.CE);
-                                            break;
-                                        case "D1":
-                                            drivingLicenceCategories.add(DrivingLicenceCategories.D1);
-                                            break;
-                                        case "D1E":
-                                            drivingLicenceCategories.add(DrivingLicenceCategories.D1E);
-                                            break;
-                                        case "D":
-                                            drivingLicenceCategories.add(DrivingLicenceCategories.D);
-                                            break;
-                                        case "DE":
-                                            drivingLicenceCategories.add(DrivingLicenceCategories.DE);
-                                            break;
-                                    }
+                                switch (cat) {
+                                    case "AM":
+                                        drivingLicenceCategories.add(DrivingLicenceCategories.AM);
+                                        break;
+                                    case "A1":
+                                        drivingLicenceCategories.add(DrivingLicenceCategories.A1);
+                                        break;
+                                    case "A2":
+                                        drivingLicenceCategories.add(DrivingLicenceCategories.A2);
+                                        break;
+                                    case "A":
+                                        drivingLicenceCategories.add(DrivingLicenceCategories.A);
+                                        break;
+                                    case "B":
+                                        drivingLicenceCategories.add(DrivingLicenceCategories.B);
+                                        break;
+                                    case "B1":
+                                        drivingLicenceCategories.add(DrivingLicenceCategories.B1);
+                                        break;
+                                    case "BE":
+                                        drivingLicenceCategories.add(DrivingLicenceCategories.BE);
+                                        break;
+                                    case "C1":
+                                        drivingLicenceCategories.add(DrivingLicenceCategories.C1);
+                                        break;
+                                    case "C1E":
+                                        drivingLicenceCategories.add(DrivingLicenceCategories.C1E);
+                                        break;
+                                    case "C":
+                                        drivingLicenceCategories.add(DrivingLicenceCategories.C);
+                                        break;
+                                    case "CE":
+                                        drivingLicenceCategories.add(DrivingLicenceCategories.CE);
+                                        break;
+                                    case "D1":
+                                        drivingLicenceCategories.add(DrivingLicenceCategories.D1);
+                                        break;
+                                    case "D1E":
+                                        drivingLicenceCategories.add(DrivingLicenceCategories.D1E);
+                                        break;
+                                    case "D":
+                                        drivingLicenceCategories.add(DrivingLicenceCategories.D);
+                                        break;
+                                    case "DE":
+                                        drivingLicenceCategories.add(DrivingLicenceCategories.DE);
+                                        break;
+                                }
                             }
                             Driver driver = new Driver(personal_id, driver_fn, driver_ln, driver_date, gender_d, driver_id, phoneNumber, mail, driverLicenceDate, drivingLicenceCategories);
                             driverList.add(driver);
@@ -209,30 +207,28 @@ public class Menu {
                         Company company = new Company(Id, name, date, owner, employeesnumber, driverList);
                         companyService.addOnlyOne(company);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 2:
+                    if (choice_company_1 == 2) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Id company:");
                         Integer Id_c = new Scanner(System.in).nextInt();
-                        Optional <Company> company_aff = companyService.getById(Id_c);
+                        Optional<Company> company_aff = companyService.getById(Id_c);
 
-                        if(company_aff.isPresent()) {
+                        if (company_aff.isPresent()) {
 
                             cout("************************************************************************************************************************\n\n");
                             cout(company_aff);
                             cout("************************************************************************************************************************\n\n");
 
-                        }
-                        else {
+                        } else {
                             cout("Id does't exist!");
                         }
                         cout("************************************************************************************************************************\n\n");
+                    }
 
-                        break;
-
-                    case 3:
+                    if (choice_company_1 == 3) {
                         List<Company> list = companyService.getAll();
 
                         cout("************************************************************************************************************************\n\n");
@@ -241,14 +237,15 @@ public class Menu {
                             cout(cp);
                         }
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 4:
+                    if (choice_company_1 == 4) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Personal id (Integer): ");
                         Integer id_m = new Scanner(System.in).nextInt();
-                        cout("Read new date:");cout("Company id (Integer): ");
+                        cout("Read new date:");
+                        cout("Company id (Integer): ");
                         Integer new_Id = new Scanner(System.in).nextInt();
                         cout("Company name (String): ");
                         Scanner str15 = new Scanner(System.in);
@@ -274,7 +271,7 @@ public class Menu {
                         cout("Gender (String): ");
                         Scanner str20 = new Scanner(System.in);
                         String new_gender = str20.nextLine();
-                        new_owner = new Person(new_owner_id, new_owner_fn,new_owner_ln, new_owner_date, new_gender);
+                        new_owner = new Person(new_owner_id, new_owner_fn, new_owner_ln, new_owner_date, new_gender);
 
 
                         cout("The number of employees in the company(String): ");
@@ -372,22 +369,21 @@ public class Menu {
                         }
 
 
-
                         Company new_company = new Company(new_Id, new_name, new_date, new_owner, new_employeesnumber, new_driverList);
                         companyService.modifyById(id_m, new_company);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 5:
+                    if (choice_company_1 == 5) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Company id (Integer): ");
                         Integer id_c = new Scanner(System.in).nextInt();
                         companyService.removeById(id_c);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 6:
+                    if (choice_company_1 == 6) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Company id (Integer): ");
@@ -478,9 +474,9 @@ public class Menu {
                         Driver driver_c = new Driver(personal_id_c, driver_fn_c, driver_ln_c, driver_date_c, gender_d_c, driver_id_c, phoneNumber_c, mail_c, driverLicenceDate_c, drivingLicenceCategories_c);
                         companyService.addNewDriver(com_id, driver_c);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 7:
+                    if (choice_company_1 == 7) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Company id (Integer): ");
@@ -489,9 +485,9 @@ public class Menu {
                         Integer new_nr = new Scanner(System.in).nextInt();
                         companyService.changeEmployeesNumber(com_nr, new_nr);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 8:
+                    if (choice_company_1 == 8) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Company id (Integer): ");
@@ -501,44 +497,47 @@ public class Menu {
                         String new_n = str37.nextLine();
                         companyService.changeCompanyName(com_n, new_n);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 9:
+                    if (choice_company_1 == 9) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Company id (Integer): ");
                         Integer com_s = new Scanner(System.in).nextInt();
                         companyService.sortDrivers(com_s);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 10:
-                        break;
+                    if (choice_company_1 == 10) {
+                        bool_c = false;
+                    }
 
                 }
-                break;
-            case 2:
-                cout("************************************************************************************************************************\\n");
-                cout("Choose an option: \n\n");
-                cout("1 - Add a client\n");
-                cout("2 - Display o client by id\n");
-                cout("3 - Display all clients\n");
-                cout("4 - Modify a client\n");
-                cout("5 - Delete a client\n");
-                cout("6 - Change phone number of a client\n");
-                cout("7 - Change mail of a client\n");
-                cout("8 - Back\n");
-                cout("Read the number associated with the desire option: ");
+            }
 
-                int choice_client_1 = new Scanner(System.in).nextInt();
+            if(choice == 2){
+                while(bool_client){
+                    cout("************************************************************************************************************************\\n");
+                    cout("Choose an option: \n\n");
+                    cout("1 - Add a client\n");
+                    cout("2 - Display o client by id\n");
+                    cout("3 - Display all clients\n");
+                    cout("4 - Modify a client\n");
+                    cout("5 - Delete a client\n");
+                    cout("6 - Change phone number of a client\n");
+                    cout("7 - Change mail of a client\n");
+                    cout("8 - Back\n");
+                    cout("Read the number associated with the desire option: ");
 
-                cout("\n\n");
-                cout("************************************************************************************************************************\n\n");
+                    int choice_client_1 = new Scanner(System.in).nextInt();
 
-                switch (choice_client_1) {
-                    case 1:
+                    cout("\n\n");
+                    cout("************************************************************************************************************************\n\n");
+
+
+                    if(choice_client_1 == 1) {
                         cout("Personal id (Integer): ");
-                        Integer personal_id = new Scanner(System.in).nextInt();
+                        Integer personal_id_c = new Scanner(System.in).nextInt();
                         cout("First name (String): ");
                         Scanner str37 = new Scanner(System.in);
                         String client_fn = str37.nextLine();
@@ -560,26 +559,25 @@ public class Menu {
                         Scanner str42 = new Scanner(System.in);
                         String mail = str42.nextLine();
 
-                        Client client = new Client(personal_id, client_fn, client_ln, client_date, gender_c, client_id, phoneNumber, mail);
+                        Client client = new Client(personal_id_c, client_fn, client_ln, client_date, gender_c, client_id, phoneNumber, mail);
                         clientService.addOnlyOne(client);
-                        break;
-                    case 2:
-                        cout("Id client:");
-                        Integer Id_c = new Scanner(System.in).nextInt();
-                        Optional <Client> client_aff = clientService.getById(Id_c);
+                    }
+                    if(choice_client_1 == 2) {
+                            cout("Id client:");
+                            Integer Id_c = new Scanner(System.in).nextInt();
+                            Optional<Client> client_aff = clientService.getById(Id_c);
 
-                        if(client_aff.isPresent()) {
+                            if (client_aff.isPresent()) {
 
-                            cout("************************************************************************************************************************\n\n");
-                            cout(client_aff);
-                            cout("************************************************************************************************************************\n\n");
+                                cout("************************************************************************************************************************\n\n");
+                                cout(client_aff);
+                                cout("************************************************************************************************************************\n\n");
 
-                        }
-                        else {
-                            cout("Id does't exist!");
-                        }
-                        break;
-                    case 3:
+                            } else {
+                                cout("Id does't exist!");
+                            }
+                    }
+                    if(choice_client_1 == 3) {
                         List<Client> list = clientService.getAll();
 
                         cout("************************************************************************************************************************\n\n");
@@ -588,8 +586,8 @@ public class Menu {
                             cout(cl);
                         }
                         cout("************************************************************************************************************************\n\n");
-                        break;
-                    case 4:
+                    }
+                    if(choice_client_1 == 4) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Personal id (Integer): ");
@@ -622,18 +620,17 @@ public class Menu {
                         clientService.modifyById(id_m, client_m);
                         cout("************************************************************************************************************************\n\n");
 
-                        break;
-                    case 5:
+                    }
+                    if (choice_client_1 == 5) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Personal id (Integer): ");
                         Integer id_d = new Scanner(System.in).nextInt();
                         clientService.removeById(id_d);
                         cout("************************************************************************************************************************\n\n");
+                    }
 
-                        break;
-
-                    case 6:
+                    if(choice_client_1 == 6) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Client id (Integer): ");
@@ -643,8 +640,8 @@ public class Menu {
                         String new_ph = str49.nextLine();
                         clientService.changePhoneNumber(client_ph, new_ph);
                         cout("************************************************************************************************************************\n\n");
-                        break;
-                    case 7:
+                    }
+                    if(choice_client_1 == 7) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Client id (Integer): ");
@@ -654,35 +651,36 @@ public class Menu {
                         String client_nm = str50.nextLine();
                         clientService.changeMail(id_nm, client_nm);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 8:
-                        break;
-
+                    if(choice_client_1 == 8) {
+                        bool_client=false;
+                    }
                 }
-                break;
+            }
 
-            case 3:
-                cout("************************************************************************************************************************\\n");
-                cout("Choose an option: \n\n");
-                cout("1 - Add a driver\n");
-                cout("2 - Display o driver by id\n");
-                cout("3 - Display all drivers\n");
-                cout("4 - Modify a driver\n");
-                cout("5 - Delete a driver\n");
-                cout("6 - Change phone number of a driver\n");
-                cout("7 - Change mail of a driver\n");
-                cout("8 - Add new licence driver categories\n");
-                cout("9 - Back\n");
-                cout("Read the number associated with the desire option: ");
 
-                int choice_driver_1 = new Scanner(System.in).nextInt();
+            if(choice == 3){
+                while(bool_driver) {
+                    cout("************************************************************************************************************************\\n");
+                    cout("Choose an option: \n\n");
+                    cout("1 - Add a driver\n");
+                    cout("2 - Display o driver by id\n");
+                    cout("3 - Display all drivers\n");
+                    cout("4 - Modify a driver\n");
+                    cout("5 - Delete a driver\n");
+                    cout("6 - Change phone number of a driver\n");
+                    cout("7 - Change mail of a driver\n");
+                    cout("8 - Add new licence driver categories\n");
+                    cout("9 - Back\n");
+                    cout("Read the number associated with the desire option: ");
 
-                cout("\n\n");
-                cout("************************************************************************************************************************\n\n");
+                    int choice_driver_1 = new Scanner(System.in).nextInt();
 
-                switch (choice_driver_1) {
-                    case 1:
+                    cout("\n\n");
+                    cout("************************************************************************************************************************\n\n");
+
+                    if(choice_driver_1 == 1) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Personal id (Integer): ");
@@ -770,28 +768,27 @@ public class Menu {
                         Driver driver = new Driver(personal_id, driver_fn, driver_ln, driver_date, gender_d, driver_id, phoneNumber, mail, driverLicenceDate, drivingLicenceCategories);
                         driverService.addOnlyOne(driver);
                         cout("************************************************************************************************************************\n\n");
-
-                    case 2:
+                    }
+                    if(choice_driver_1 == 2) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Id driver:");
                         Integer Id_c = new Scanner(System.in).nextInt();
-                        Optional <Driver> driver_aff = driverService.getById(Id_c);
+                        Optional<Driver> driver_aff = driverService.getById(Id_c);
 
-                        if(driver_aff.isPresent()) {
+                        if (driver_aff.isPresent()) {
 
                             cout("************************************************************************************************************************\n\n");
                             cout(driver_aff);
                             cout("************************************************************************************************************************\n\n");
 
-                        }
-                        else {
+                        } else {
                             cout("Id does't exist!");
                         }
                         cout("************************************************************************************************************************\n\n");
 
-                        break;
-                    case 3:
+                    }
+                    if(choice_driver_1 == 3) {
                         List<Driver> list = driverService.getAll();
 
                         cout("************************************************************************************************************************\n\n");
@@ -800,8 +797,8 @@ public class Menu {
                             cout(dr);
                         }
                         cout("************************************************************************************************************************\n\n");
-                        break;
-                    case 4:
+                    }
+                    if(choice_driver_1 == 4) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Personal id (Integer): ");
@@ -893,8 +890,8 @@ public class Menu {
                         driverService.modifyById(id_m, new_driver);
                         cout("************************************************************************************************************************\n\n");
 
-                        break;
-                    case 5:
+                    }
+                    if(choice_driver_1 == 5) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Personal id (Integer): ");
@@ -902,9 +899,9 @@ public class Menu {
                         driverService.removeById(id_d);
                         cout("************************************************************************************************************************\n\n");
 
-                        break;
+                    }
 
-                    case 6:
+                    if(choice_driver_1 == 6) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Driver id (Integer): ");
@@ -914,8 +911,8 @@ public class Menu {
                         String new_ph_d = str67.nextLine();
                         driverService.changePhoneNumber(driver_ph, new_ph_d);
                         cout("************************************************************************************************************************\n\n");
-                        break;
-                    case 7:
+                    }
+                    if(choice_driver_1 == 7) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Driver id (Integer): ");
@@ -925,9 +922,9 @@ public class Menu {
                         String client_nm_d = str68.nextLine();
                         driverService.changeMail(id_nm_d, client_nm_d);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 8:
+                    if(choice_driver_1 == 8) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Driver id (Integer): ");
@@ -985,41 +982,42 @@ public class Menu {
                                 break;
                         }
 
-                        for(Driver driverr: driverService.getAll()) {
+                        for (Driver driverr : driverService.getAll()) {
                             if (driverr.getDriverId() == id_nl_d) {
                                 driverService.removeById(id_nl_d);
-                                Driver new_dr = new Driver(driverr.getPersonId(), driverr.getFirstName(), driverr.getLastName(), driverr.getDateOfBird(),driverr.getGender(),driverr.getDriverId(), driverr.getPhoneNumber(), driverr.getMail(),driverr.getDriverLicenceDate(), drl);
+                                Driver new_dr = new Driver(driverr.getPersonId(), driverr.getFirstName(), driverr.getLastName(), driverr.getDateOfBird(), driverr.getGender(), driverr.getDriverId(), driverr.getPhoneNumber(), driverr.getMail(), driverr.getDriverLicenceDate(), drl);
                                 driverService.addOnlyOne(new_dr);
                             }
                         }
 
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 9:
-                        break;
+                    if(choice_driver_1 == 9) {
+                        bool_driver = false;
+                    }
 
                 }
-                break;
-            case 4:
-                cout("************************************************************************************************************************\\n");
-                cout("Choose an option: \n\n");
-                cout("1 - Add a car\n");
-                cout("2 - Display o car by id\n");
-                cout("3 - Display all cars\n");
-                cout("4 - Modify a car\n");
-                cout("5 - Delete a car\n");
-                cout("6 - Change color\n");
-                cout("7 - Back\n");
-                cout("Read the number associated with the desire option: ");
+            }
+            if(choice == 4) {
+                while (bool_car) {
+                    cout("************************************************************************************************************************\\n");
+                    cout("Choose an option: \n\n");
+                    cout("1 - Add a car\n");
+                    cout("2 - Display o car by id\n");
+                    cout("3 - Display all cars\n");
+                    cout("4 - Modify a car\n");
+                    cout("5 - Delete a car\n");
+                    cout("6 - Change color\n");
+                    cout("7 - Back\n");
+                    cout("Read the number associated with the desire option: ");
 
-                int choice_car_1 = new Scanner(System.in).nextInt();
+                    int choice_car_1 = new Scanner(System.in).nextInt();
 
-                cout("\n\n");
-                cout("************************************************************************************************************************\n\n");
+                    cout("\n\n");
+                    cout("************************************************************************************************************************\n\n");
 
-                switch (choice_car_1) {
-                    case 1:
+                    if(choice_car_1 == 1) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Car id (Integer): ");
@@ -1043,31 +1041,31 @@ public class Menu {
                             case "WHITE":
                                 real_color = Color.WHITE;
                                 break;
-                            case "BLACK" :
+                            case "BLACK":
                                 real_color = Color.BLACK;
                                 break;
-                            case "RED" :
+                            case "RED":
                                 real_color = Color.RED;
                                 break;
-                            case "BLUE" :
+                            case "BLUE":
                                 real_color = Color.BLUE;
                                 break;
-                            case "YELLOW" :
+                            case "YELLOW":
                                 real_color = Color.YELLOW;
                                 break;
-                            case "GREEN" :
+                            case "GREEN":
                                 real_color = Color.GREEN;
                                 break;
-                            case "PURPLE" :
+                            case "PURPLE":
                                 real_color = Color.PURPLE;
                                 break;
-                            case "BROWN" :
+                            case "BROWN":
                                 real_color = Color.BROWN;
                                 break;
-                            case "GREY" :
+                            case "GREY":
                                 real_color = Color.GREY;
                                 break;
-                            case "PINK" :
+                            case "PINK":
                                 real_color = Color.PINK;
                                 break;
                         }
@@ -1076,30 +1074,29 @@ public class Menu {
                         Car car = new Car(car_id, driver_id, brand, model, identificationNumber, real_color, nr);
                         carService.addOnlyOne(car);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
 
-                    case 2:
+                    if(choice_car_1 == 2) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Id car:");
                         Integer Id_c = new Scanner(System.in).nextInt();
-                        Optional <Car> car_aff = carService.getById(Id_c);
+                        Optional<Car> car_aff = carService.getById(Id_c);
 
-                        if(car_aff.isPresent()) {
+                        if (car_aff.isPresent()) {
 
                             cout("************************************************************************************************************************\n\n");
                             cout(car_aff);
                             cout("************************************************************************************************************************\n\n");
 
-                        }
-                        else {
+                        } else {
                             cout("Id does't exist!");
                         }
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 3:
+                    if(choice_car_1 == 3) {
                         List<Car> list = carService.getAll();
 
                         cout("************************************************************************************************************************\n\n");
@@ -1108,9 +1105,9 @@ public class Menu {
                             cout(cr);
                         }
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 4:
+                    if(choice_car_1 == 4) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Car id (Integer): ");
@@ -1137,31 +1134,31 @@ public class Menu {
                             case "WHITE":
                                 new_real_color = Color.WHITE;
                                 break;
-                            case "BLACK" :
+                            case "BLACK":
                                 new_real_color = Color.BLACK;
                                 break;
-                            case "RED" :
+                            case "RED":
                                 new_real_color = Color.RED;
                                 break;
-                            case "BLUE" :
+                            case "BLUE":
                                 new_real_color = Color.BLUE;
                                 break;
-                            case "YELLOW" :
+                            case "YELLOW":
                                 new_real_color = Color.YELLOW;
                                 break;
-                            case "GREEN" :
+                            case "GREEN":
                                 new_real_color = Color.GREEN;
                                 break;
-                            case "PURPLE" :
+                            case "PURPLE":
                                 new_real_color = Color.PURPLE;
                                 break;
-                            case "BROWN" :
+                            case "BROWN":
                                 new_real_color = Color.BROWN;
                                 break;
-                            case "GREY" :
+                            case "GREY":
                                 new_real_color = Color.GREY;
                                 break;
-                            case "PINK" :
+                            case "PINK":
                                 new_real_color = Color.PINK;
                                 break;
                         }
@@ -1170,8 +1167,8 @@ public class Menu {
                         Car new_car = new Car(new_car_id, new_driver_id, new_brand, new_model, new_identificationNumber, new_real_color, new_nr);
                         carService.modifyById(id_c, new_car);
                         cout("************************************************************************************************************************\n\n");
-                        break;
-                    case 5:
+                    }
+                    if(choice_car_1 == 5) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Car id (Integer): ");
@@ -1179,9 +1176,9 @@ public class Menu {
                         carService.removeById(id_ca);
                         cout("************************************************************************************************************************\n\n");
 
-                        break;
+                    }
 
-                    case 6:
+                    if(choice_car_1 == 6) {
                         cout("Car id (Integer): ");
                         Integer id_car = new Scanner(System.in).nextInt();
                         cout("New color (String): ");
@@ -1192,60 +1189,63 @@ public class Menu {
                             case "WHITE":
                                 real_color1 = Color.WHITE;
                                 break;
-                            case "BLACK" :
+                            case "BLACK":
                                 real_color1 = Color.BLACK;
                                 break;
-                            case "RED" :
+                            case "RED":
                                 real_color1 = Color.RED;
                                 break;
-                            case "BLUE" :
+                            case "BLUE":
                                 real_color1 = Color.BLUE;
                                 break;
-                            case "YELLOW" :
+                            case "YELLOW":
                                 real_color1 = Color.YELLOW;
                                 break;
-                            case "GREEN" :
+                            case "GREEN":
                                 real_color1 = Color.GREEN;
                                 break;
-                            case "PURPLE" :
+                            case "PURPLE":
                                 real_color1 = Color.PURPLE;
                                 break;
-                            case "BROWN" :
+                            case "BROWN":
                                 real_color1 = Color.BROWN;
                                 break;
-                            case "GREY" :
+                            case "GREY":
                                 real_color1 = Color.GREY;
                                 break;
-                            case "PINK" :
+                            case "PINK":
                                 real_color1 = Color.PINK;
                                 break;
                         }
                         carService.changeColor(id_car, real_color1);
                         cout("************************************************************************************************************************\\n");
-                        break;
+                    }
 
-                    case 7:
-                        break;
+                    if(choice_car_1 == 7) {
+                        bool_car = false;
+                    }
                 }
-                break;
-            case 5:
-                cout("************************************************************************************************************************\\n");
-                cout("Choose an option: \n\n");
-                cout("1 - Add a location\n");
-                cout("2 - Display o location by id\n");
-                cout("3 - Display all locations\n");
-                cout("4 - Modify a location\n");
-                cout("5 - Delete a location\n");
-                cout("6 - Back\n");
-                cout("Read the number associated with the desire option: ");
+            }
 
-                int choice_location_1 = new Scanner(System.in).nextInt();
+            if(choice == 5) {
+                while (bool_location) {
+                    cout("************************************************************************************************************************\\n");
+                    cout("Choose an option: \n\n");
+                    cout("1 - Add a location\n");
+                    cout("2 - Display o location by id\n");
+                    cout("3 - Display all locations\n");
+                    cout("4 - Modify a location\n");
+                    cout("5 - Delete a location\n");
+                    cout("6 - Back\n");
+                    cout("Read the number associated with the desire option: ");
 
-                cout("\n\n");
-                cout("************************************************************************************************************************\n\n");
+                    int choice_location_1 = new Scanner(System.in).nextInt();
 
-                switch (choice_location_1) {
-                    case 1:
+                    cout("\n\n");
+                    cout("************************************************************************************************************************\n\n");
+
+
+                    if(choice_location_1 == 1) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Location id (Integer): ");
@@ -1262,29 +1262,28 @@ public class Menu {
                         Location loc = new Location(id_l, city, street, number);
                         locationService.addOnlyOne(loc);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 2:
+                    if(choice_location_1 == 2) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Id location:");
                         Integer Id_l = new Scanner(System.in).nextInt();
-                        Optional <Location> loc_aff = locationService.getById(Id_l);
+                        Optional<Location> loc_aff = locationService.getById(Id_l);
 
-                        if(loc_aff.isPresent()) {
+                        if (loc_aff.isPresent()) {
 
                             cout("************************************************************************************************************************\n\n");
                             cout(loc_aff);
                             cout("************************************************************************************************************************\n\n");
 
-                        }
-                        else {
+                        } else {
                             cout("Id does't exist!");
                         }
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 3:
+                    if(choice_location_1 == 3) {
                         List<Location> list = locationService.getAll();
 
                         cout("************************************************************************************************************************\n\n");
@@ -1293,9 +1292,9 @@ public class Menu {
                             cout(locc);
                         }
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 4:
+                    if(choice_location_1 == 4) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Location id (Integer): ");
@@ -1315,43 +1314,44 @@ public class Menu {
                         Location new_loc = new Location(new_id_l, new_city, new_street, new_number);
                         locationService.modifyById(id_ll, new_loc);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 5:
+                    if(choice_location_1 == 5) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Location id (Integer): ");
                         Integer id_lll = new Scanner(System.in).nextInt();
                         locationService.removeById(id_lll);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 6:
-                        break;
+                    if(choice_location_1 == 6) {
+                        bool_location = false;
+                    }
                 }
-                break;
+            }
 
-            case 6:
-                cout("************************************************************************************************************************\\n");
-                cout("Choose an option: \n\n");
-                cout("1 - Add a order\n");
-                cout("2 - Display o order by id\n");
-                cout("3 - Display all orders\n");
-                cout("4 - Modify a order\n");
-                cout("5 - Delete a order\n");
-                cout("6 - Canceled order\n");
-                cout("7 - Change order location\n");
-                cout("8 - Add order delay\n");
-                cout("9 - Back\n");
-                cout("Read the number associated with the desire option: ");
+            if(choice == 6) {
+                while (bool_order) {
+                    cout("************************************************************************************************************************\\n");
+                    cout("Choose an option: \n\n");
+                    cout("1 - Add a order\n");
+                    cout("2 - Display o order by id\n");
+                    cout("3 - Display all orders\n");
+                    cout("4 - Modify a order\n");
+                    cout("5 - Delete a order\n");
+                    cout("6 - Canceled order\n");
+                    cout("7 - Change order location\n");
+                    cout("8 - Add order delay\n");
+                    cout("9 - Back\n");
+                    cout("Read the number associated with the desire option: ");
 
-                int choice_order_1 = new Scanner(System.in).nextInt();
+                    int choice_order_1 = new Scanner(System.in).nextInt();
 
-                cout("\n\n");
-                cout("************************************************************************************************************************\n\n");
+                    cout("\n\n");
+                    cout("************************************************************************************************************************\n\n");
 
-                switch (choice_order_1) {
-                    case 1:
+                    if(choice_order_1 == 1) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Order id (Integer): ");
@@ -1376,29 +1376,28 @@ public class Menu {
                         Order order = new Order(order_id, client_id_o, driver_id_o, location_id_o, price, driver_t, o_time, r_time);
                         orderService.addOnlyOne(order);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 2:
+                    if(choice_order_1 == 2) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Order id review:");
                         Integer Id_ord = new Scanner(System.in).nextInt();
-                        Optional <Order> ord_aff = orderService.getById(Id_ord);
+                        Optional<Order> ord_aff = orderService.getById(Id_ord);
 
-                        if(ord_aff.isPresent()) {
+                        if (ord_aff.isPresent()) {
 
                             cout("************************************************************************************************************************\n\n");
                             cout(ord_aff);
                             cout("************************************************************************************************************************\n\n");
 
-                        }
-                        else {
+                        } else {
                             cout("Id does't exist!");
                         }
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 3:
+                    if(choice_order_1 == 3) {
                         List<Order> list = orderService.getAll();
 
                         cout("************************************************************************************************************************\n\n");
@@ -1407,9 +1406,9 @@ public class Menu {
                             cout(ord);
                         }
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 4:
+                    if(choice_order_1 == 4) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Order id (Integer): ");
@@ -1437,25 +1436,25 @@ public class Menu {
                         Order new_order = new Order(new_order_id, new_client_id_o, new_driver_id_o, new_location_id_o, new_price, new_driver_t, new_o_time, new_r_time);
                         orderService.modifyById(new_id_ord, new_order);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 5:
+                    if(choice_order_1 == 5) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Order id (Integer): ");
                         Integer id_ordd = new Scanner(System.in).nextInt();
                         orderService.removeById(id_ordd);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 6:
+                    if(choice_order_1 == 6) {
                         cout("Order id (Integer): ");
                         Integer order_id_c = new Scanner(System.in).nextInt();
                         orderService.orderCancelated(order_id_c);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 7:
+                    if(choice_order_1 == 7) {
                         cout("Order id (Integer): ");
                         Integer order_id_l = new Scanner(System.in).nextInt();
 
@@ -1473,9 +1472,9 @@ public class Menu {
 
                         orderService.changeOrderLocation(order_id_l, loc_o);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 8:
+                    if(choice_order_1 == 8) {
                         cout("Order id (Integer): ");
                         Integer order_id_d = new Scanner(System.in).nextInt();
                         cout("New order receiving (String): ");
@@ -1490,32 +1489,33 @@ public class Menu {
                             }
                         }
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 9:
-                        break;
+                    if(choice_order_1 == 9) {
+                        bool_order = false;
+                    }
 
                 }
-                break;
+            }
 
-            case 7:
-                cout("************************************************************************************************************************\\n");
-                cout("Choose an option: \n\n");
-                cout("1 - Add a order review\n");
-                cout("2 - Display o order review by id\n");
-                cout("3 - Display all orders review\n");
-                cout("4 - Modify a order review\n");
-                cout("5 - Delete a order review\n");
-                cout("6 - Back\n");
-                cout("Read the number associated with the desire option: ");
+            if(choice == 7) {
+                while (bool_orderreview) {
+                    cout("************************************************************************************************************************\\n");
+                    cout("Choose an option: \n\n");
+                    cout("1 - Add a order review\n");
+                    cout("2 - Display o order review by id\n");
+                    cout("3 - Display all orders review\n");
+                    cout("4 - Modify a order review\n");
+                    cout("5 - Delete a order review\n");
+                    cout("6 - Back\n");
+                    cout("Read the number associated with the desire option: ");
 
-                int choice_or_1 = new Scanner(System.in).nextInt();
+                    int choice_or_1 = new Scanner(System.in).nextInt();
 
-                cout("\n\n");
-                cout("************************************************************************************************************************\n\n");
+                    cout("\n\n");
+                    cout("************************************************************************************************************************\n\n");
 
-                switch (choice_or_1) {
-                    case 1:
+                    if(choice_or_1 == 1) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("OrderReview id (Integer): ");
@@ -1531,29 +1531,28 @@ public class Menu {
                         OrderReview ord_rev = new OrderReview(id_r, id_ord, nr_stars, complaints);
                         orderReviewService.addOnlyOne(ord_rev);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 2:
+                    if(choice_or_1 == 2) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Id order review:");
                         Integer Id_or = new Scanner(System.in).nextInt();
-                        Optional <OrderReview> or_aff = orderReviewService.getById(Id_or);
+                        Optional<OrderReview> or_aff = orderReviewService.getById(Id_or);
 
-                        if(or_aff.isPresent()) {
+                        if (or_aff.isPresent()) {
 
                             cout("************************************************************************************************************************\n\n");
                             cout(or_aff);
                             cout("************************************************************************************************************************\n\n");
 
-                        }
-                        else {
+                        } else {
                             cout("Id does't exist!");
                         }
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 3:
+                    if(choice_or_1 == 3) {
                         List<OrderReview> list = orderReviewService.getAll();
 
                         cout("************************************************************************************************************************\n\n");
@@ -1562,9 +1561,9 @@ public class Menu {
                             cout(or);
                         }
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 4:
+                    if(choice_or_1 == 4) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Order review id (Integer): ");
@@ -1583,41 +1582,42 @@ public class Menu {
                         OrderReview new_or = new OrderReview(new_id_r, new_id_ord, new_nr_stars, new_complaints);
                         orderReviewService.modifyById(new_id_or, new_or);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 5:
+                    if(choice_or_1 == 5) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Order review id (Integer): ");
                         Integer id_orr = new Scanner(System.in).nextInt();
                         orderReviewService.removeById(id_orr);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 6:
-                        break;
+                    if(choice_or_1 == 6) {
+                        bool_orderreview = false;
+                    }
 
                 }
-                break;
+            }
 
-            case 8:
-                cout("************************************************************************************************************************\\n");
-                cout("Choose an option: \n\n");
-                cout("1 - Add a person\n");
-                cout("2 - Display o person by id\n");
-                cout("3 - Display all persons\n");
-                cout("4 - Modify a person\n");
-                cout("5 - Delete a person\n");
-                cout("6 - Back\n");
-                cout("Read the number associated with the desire option: ");
+            if(choice == 8) {
+                while (bool_person) {
+                    cout("************************************************************************************************************************\\n");
+                    cout("Choose an option: \n\n");
+                    cout("1 - Add a person\n");
+                    cout("2 - Display o person by id\n");
+                    cout("3 - Display all persons\n");
+                    cout("4 - Modify a person\n");
+                    cout("5 - Delete a person\n");
+                    cout("6 - Back\n");
+                    cout("Read the number associated with the desire option: ");
 
-                int choice_person_1 = new Scanner(System.in).nextInt();
+                    int choice_person_1 = new Scanner(System.in).nextInt();
 
-                cout("\n\n");
-                cout("************************************************************************************************************************\n\n");
+                    cout("\n\n");
+                    cout("************************************************************************************************************************\n\n");
 
-                switch (choice_person_1) {
-                    case 1:
+                    if(choice_person_1 == 1) {
                         cout("Personal id (Integer): ");
                         Integer person_id = new Scanner(System.in).nextInt();
                         cout("First name (String): ");
@@ -1636,26 +1636,25 @@ public class Menu {
                         Person person = new Person(person_id, person_fn, person_ln, person_date, gender_p);
                         personService.addOnlyOne(person);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 2:
+                    if(choice_person_1 == 2) {
                         cout("Person Id:");
                         Integer Id_p = new Scanner(System.in).nextInt();
-                        Optional <Person> person_aff = personService.getById(Id_p);
+                        Optional<Person> person_aff = personService.getById(Id_p);
 
-                        if(person_aff.isPresent()) {
+                        if (person_aff.isPresent()) {
 
                             cout("************************************************************************************************************************\n\n");
                             cout(person_aff);
                             cout("************************************************************************************************************************\n\n");
 
-                        }
-                        else {
+                        } else {
                             cout("Id does't exist!");
                         }
-                        break;
+                    }
 
-                    case 3:
+                    if(choice_person_1 == 3) {
                         List<Person> list = personService.getAll();
 
                         cout("************************************************************************************************************************\n\n");
@@ -1664,9 +1663,9 @@ public class Menu {
                             cout(per);
                         }
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 4:
+                    if(choice_person_1 == 4) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Personal id (Integer): ");
@@ -1690,9 +1689,9 @@ public class Menu {
                         Person newPerson = new Person(new_person_id, new_person_fn, new_person_ln, new_person_date, new_gender_p);
                         personService.modifyById(id_read, newPerson);
                         cout("************************************************************************************************************************\n\n");
-                        break;
+                    }
 
-                    case 5:
+                    if(choice_person_1 == 5) {
                         cout("************************************************************************************************************************\n\n");
 
                         cout("Person id (Integer): ");
@@ -1700,15 +1699,19 @@ public class Menu {
                         personService.removeById(id_pp);
                         cout("************************************************************************************************************************\n\n");
 
-                        break;
-                    case 6:
-                        break;
+                    }
+                    if(choice_person_1 == 6) {
+                        bool_person = false;
+                    }
+
 
                 }
-                break;
+            }
 
-            case 9:
-                break;
+            if(choice == 9) {
+                glb = false;
+            }
         }
+
     }
 }
