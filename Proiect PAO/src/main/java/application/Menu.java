@@ -17,12 +17,12 @@ public class Menu {
     private static Menu INSTANCE;
     private final CarService carService = new CarServiceImpl();
     private final ClientService clientService = new ClientServiceImpl();
+    private final PersonService personService = new PersonServiceImpl();
     private final CompanyService companyService = new CompanyServiceImpl();
     private final DriverService driverService = new DriverServiceImpl();
     private final LocationService locationService = new LocationServiceImpl();
     private final OrderReviewService orderReviewService = new OrderReviewImpl();
     private final OrderService orderService = new OrderServiceImpl();
-    private final PersonService personService = new PersonServiceImpl();
 
     public static Menu getInstance() {
         return (INSTANCE == null ? new Menu() : INSTANCE);
@@ -35,87 +35,10 @@ public class Menu {
     }
 
     public void intro() {
-        /*Car car = Car.builder()
-                .CarId(1)
-                .Brand("BMW") // data de azi
-                .Model("e46")
-                .IdentificationNumber("TR96MDL")
-                .Color(Color.RED)
-                .NumberOfSeats(4)
-                .build();
-        //System.out.println(car);
-        Car car2 = Car.builder()
-                .CarId(2)
-                .Brand("BMW") // data de azi
-                .Model("e46")
-                .IdentificationNumber("TR05GZO")
-                .Color(Color.BLACK)
-                .NumberOfSeats(4)
-                .build();
-
-        carService.addOnlyOne(car);
-        carService.modifyById(1, car2);
-        List<Car> list_car = carService.getAll();
-        //carService.getAllCar();
-        for(Car carr:list_car) {
-            System.out.println(carr);
-
-
-        Set<DriverLicence> licence_dr1 = new HashSet<>(Arrays.asList(DriverLicence.A, DriverLicence.B));
-        Driver d1 = Driver.builder()
-                .DriverId(1)
-                .PersonId(1)
-                .PhoneNumber("07777")
-                .Mail("primul_creat")
-                .DriverLicenceDate("01042002")
-                .DriverLicence(licence_dr1)
-                .build();
-        Set<DriverLicence> licence_dr2 = new HashSet<>(Arrays.asList(DriverLicence.A, DriverLicence.B, DriverLicence.A2, DriverLicence.B1));
-        Driver d2 = Driver.builder()
-                .DriverId(2)
-                .PersonId(2)
-                .PhoneNumber("07557")
-                .Mail("al_doile_creat")
-                .DriverLicenceDate("01042002")
-                .DriverLicence(licence_dr2)
-                .build();
-        Set<DriverLicence> licence_dr3 = new HashSet<>(Arrays.asList(DriverLicence.A, DriverLicence.B, DriverLicence.B1));
-        Driver d3 = Driver.builder()
-                .DriverId(2)
-                .PersonId(2)
-                .PhoneNumber("07557")
-                .Mail("al_treilea_creat")
-                .DriverLicenceDate("01042002")
-                .DriverLicence(licence_dr3)
-                .build();
-        List<Driver> list1 = new ArrayList<>();
-        list1.add(d1);
-        list1.add(d2);
-        list1.add(d3);
-        Person p1 = Person.builder()
-                .PersonId(1)
-                .FirstName("Nicu")
-                .LastName("Dirva")
-                .DateOfBird("010101")
-                .Gender("Male")
-                .build();
-        Company c1 = Company.builder()
-                .CompanyId(1)
-                .Name("Compnia 1")
-                .FoundationDate("010219000")
-                .President(p1)
-                .EmployeesNumber(120)
-                .DriverList(list1)
-                .build();
-        companyService.addOnlyOne(c1);
-        companyService.sortDrivers(1);
-        for(Company c : companyService.getAll()) {
-            for (Driver driver : c.getDriverList()) {
-                System.out.println(driver.getMail());
-            }
+        boolean glb = true;
+        while(glb) {
 
         }
-        */
         cout("************************************************************************************************************************\\n");
         cout("Choose an option: \n\n");
         cout("1 - Company operation\n");
@@ -134,7 +57,7 @@ public class Menu {
         cout("\n\n");
         cout("************************************************************************************************************************\n\n");
 
-        switch (choice) {
+        while (glb) {
             case 1:
                 cout("************************************************************************************************************************\\n");
                 cout("Choose an option: \n\n");
@@ -143,7 +66,11 @@ public class Menu {
                 cout("3 - Display all companies\n");
                 cout("4 - Modify a company\n");
                 cout("5 - Delete a company\n");
-                cout("6 - Back\n");
+                cout("6 - Add new driver in the company\n");
+                cout("7 - Change the number of employees in the company\n");
+                cout("8 - Change company name\n");
+                cout("9 - Sort the drivers in the company\n");
+                cout("10 - Back\n");
                 cout("Read the number associated with the desire option: ");
 
                 int choice_company_1 = new Scanner(System.in).nextInt();
@@ -157,9 +84,11 @@ public class Menu {
                         cout("Company id (Integer): ");
                         Integer Id = new Scanner(System.in).nextInt();
                         cout("Company name (String): ");
-                        String name = String.valueOf(new Scanner(System.in));
+                        Scanner str1 = new Scanner(System.in);
+                        String name = str1.nextLine();
                         cout("The date of establishment  of the company (String): ");
-                        String date = String.valueOf(new Scanner(System.in));
+                        Scanner str2 = new Scanner(System.in);
+                        String date = str2.nextLine();
 
                         Person owner;
 
@@ -167,13 +96,17 @@ public class Menu {
                         cout("Personal id (Integer): ");
                         Integer owner_id = new Scanner(System.in).nextInt();
                         cout("First name (String): ");
-                        String owner_fn = String.valueOf(new Scanner(System.in));
+                        Scanner str3 = new Scanner(System.in);
+                        String owner_fn = str3.nextLine();
                         cout("Last name (String): ");
-                        String owner_ln = String.valueOf(new Scanner(System.in));
+                        Scanner str4 = new Scanner(System.in);
+                        String owner_ln = str4.nextLine();
                         cout("Date of bird (String): ");
-                        String owner_date = String.valueOf(new Scanner(System.in));
+                        Scanner str5 = new Scanner(System.in);
+                        String owner_date = str5.nextLine();
                         cout("Gender (String): ");
-                        String gender = String.valueOf(new Scanner(System.in));
+                        Scanner str6 = new Scanner(System.in);
+                        String gender = str6.nextLine();
                         owner = new Person(owner_id, owner_fn, owner_ln, owner_date, gender);
 
 
@@ -188,21 +121,28 @@ public class Menu {
                             cout("Personal id (Integer): ");
                             Integer personal_id = new Scanner(System.in).nextInt();
                             cout("First name (String): ");
-                            String driver_fn = String.valueOf(new Scanner(System.in));
+                            Scanner str7 = new Scanner(System.in);
+                            String driver_fn = str7.nextLine();
                             cout("Last name (String): ");
-                            String driver_ln = String.valueOf(new Scanner(System.in));
+                            Scanner str8 = new Scanner(System.in);
+                            String driver_ln = str8.nextLine();
                             cout("Date of bird (String): ");
-                            String driver_date = String.valueOf(new Scanner(System.in));
+                            Scanner str9 = new Scanner(System.in);
+                            String driver_date = str9.nextLine();
                             cout("Gender (String): ");
-                            String gender_d = String.valueOf(new Scanner(System.in));
+                            Scanner str10 = new Scanner(System.in);
+                            String gender_d = str10.nextLine();
                             cout("Driver id (Integer): ");
                             Integer driver_id = new Scanner(System.in).nextInt();
                             cout("Phone Number (String): ");
-                            String phoneNumber = String.valueOf(new Scanner(System.in));
+                            Scanner str11 = new Scanner(System.in);
+                            String phoneNumber = str11.nextLine();
                             cout("Mail (String): ");
-                            String mail = String.valueOf(new Scanner(System.in));
+                            Scanner str12 = new Scanner(System.in);
+                            String mail = str12.nextLine();
                             cout("Driver licence date (String): ");
-                            String driverLicenceDate = String.valueOf(new Scanner(System.in));
+                            Scanner str13 = new Scanner(System.in);
+                            String driverLicenceDate = str13.nextLine();
 
                             driverList = new ArrayList<>();
 
@@ -211,7 +151,8 @@ public class Menu {
                             Integer numberLicenceCategories = new Scanner(System.in).nextInt();
 
                             for (int j = 0; j < numberLicenceCategories; j++) {
-                                String cat = String.valueOf(new Scanner(System.in));
+                                Scanner str14 = new Scanner(System.in);
+                                String cat = str14.nextLine();
                                     switch (cat) {
                                         case "AM":
                                             drivingLicenceCategories.add(DrivingLicenceCategories.AM);
@@ -310,9 +251,11 @@ public class Menu {
                         cout("Read new date:");cout("Company id (Integer): ");
                         Integer new_Id = new Scanner(System.in).nextInt();
                         cout("Company name (String): ");
-                        String new_name = String.valueOf(new Scanner(System.in));
+                        Scanner str15 = new Scanner(System.in);
+                        String new_name = str15.nextLine();
                         cout("The date of establishment  of the company (String): ");
-                        String new_date = String.valueOf(new Scanner(System.in));
+                        Scanner str16 = new Scanner(System.in);
+                        String new_date = str16.nextLine();
 
                         Person new_owner;
 
@@ -320,13 +263,17 @@ public class Menu {
                         cout("Personal id (Integer): ");
                         Integer new_owner_id = new Scanner(System.in).nextInt();
                         cout("First name (String): ");
-                        String new_owner_fn = String.valueOf(new Scanner(System.in));
+                        Scanner str17 = new Scanner(System.in);
+                        String new_owner_fn = str17.nextLine();
                         cout("Last name (String): ");
-                        String new_owner_ln = String.valueOf(new Scanner(System.in));
+                        Scanner str18 = new Scanner(System.in);
+                        String new_owner_ln = str18.nextLine();
                         cout("Date of bird (String): ");
-                        String new_owner_date = String.valueOf(new Scanner(System.in));
+                        Scanner str19 = new Scanner(System.in);
+                        String new_owner_date = str19.nextLine();
                         cout("Gender (String): ");
-                        String new_gender = String.valueOf(new Scanner(System.in));
+                        Scanner str20 = new Scanner(System.in);
+                        String new_gender = str20.nextLine();
                         new_owner = new Person(new_owner_id, new_owner_fn,new_owner_ln, new_owner_date, new_gender);
 
 
@@ -341,21 +288,28 @@ public class Menu {
                             cout("Personal id (Integer): ");
                             Integer personal_id = new Scanner(System.in).nextInt();
                             cout("First name (String): ");
-                            String driver_fn = String.valueOf(new Scanner(System.in));
+                            Scanner str21 = new Scanner(System.in);
+                            String driver_fn = str21.nextLine();
                             cout("Last name (String): ");
-                            String driver_ln = String.valueOf(new Scanner(System.in));
+                            Scanner str22 = new Scanner(System.in);
+                            String driver_ln = str22.nextLine();
                             cout("Date of bird (String): ");
-                            String driver_date = String.valueOf(new Scanner(System.in));
+                            Scanner str23 = new Scanner(System.in);
+                            String driver_date = str23.nextLine();
                             cout("Gender (String): ");
-                            String gender_d = String.valueOf(new Scanner(System.in));
+                            Scanner str24 = new Scanner(System.in);
+                            String gender_d = str24.nextLine();
                             cout("Driver id (Integer): ");
                             Integer driver_id = new Scanner(System.in).nextInt();
                             cout("Phone Number (String): ");
-                            String phoneNumber = String.valueOf(new Scanner(System.in));
+                            Scanner str25 = new Scanner(System.in);
+                            String phoneNumber = str25.nextLine();
                             cout("Mail (String): ");
-                            String mail = String.valueOf(new Scanner(System.in));
+                            Scanner str26 = new Scanner(System.in);
+                            String mail = str26.nextLine();
                             cout("Driver licence date (String): ");
-                            String driverLicenceDate = String.valueOf(new Scanner(System.in));
+                            Scanner str27 = new Scanner(System.in);
+                            String driverLicenceDate = str27.nextLine();
 
 
                             Set<DrivingLicenceCategories> drivingLicenceCategories = new HashSet<>();
@@ -363,7 +317,8 @@ public class Menu {
                             Integer numberLicenceCategories = new Scanner(System.in).nextInt();
 
                             for (int j = 0; j < numberLicenceCategories; j++) {
-                                String cat = String.valueOf(new Scanner(System.in));
+                                Scanner str28 = new Scanner(System.in);
+                                String cat = str28.nextLine();
                                 switch (cat) {
                                     case "AM":
                                         drivingLicenceCategories.add(DrivingLicenceCategories.AM);
@@ -433,12 +388,135 @@ public class Menu {
                         break;
 
                     case 6:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Company id (Integer): ");
+                        Integer com_id = new Scanner(System.in).nextInt();
+                        cout("Read driver date:");
+                        cout("Personal id (Integer): ");
+                        Integer personal_id_c = new Scanner(System.in).nextInt();
+                        cout("First name (String): ");
+                        Scanner str29 = new Scanner(System.in);
+                        String driver_fn_c = str29.nextLine();
+                        cout("Last name (String): ");
+                        Scanner str30 = new Scanner(System.in);
+                        String driver_ln_c = str30.nextLine();
+                        cout("Date of bird (String): ");
+                        Scanner str31 = new Scanner(System.in);
+                        String driver_date_c = str31.nextLine();
+                        cout("Gender (String): ");
+                        Scanner str32 = new Scanner(System.in);
+                        String gender_d_c = str32.nextLine();
+                        cout("Driver id (Integer): ");
+                        Integer driver_id_c = new Scanner(System.in).nextInt();
+                        cout("Phone Number (String): ");
+                        Scanner str33 = new Scanner(System.in);
+                        String phoneNumber_c = str33.nextLine();
+                        cout("Mail (String): ");
+                        Scanner str34 = new Scanner(System.in);
+                        String mail_c = str34.nextLine();
+                        cout("Driver licence date (String): ");
+                        Scanner str35 = new Scanner(System.in);
+                        String driverLicenceDate_c = str35.nextLine();
+
+
+                        Set<DrivingLicenceCategories> drivingLicenceCategories_c = new HashSet<>();
+                        cout("The number of driving licence categories: ");
+                        Integer numberLicenceCategories_c = new Scanner(System.in).nextInt();
+
+                        for (int j = 0; j < numberLicenceCategories_c; j++) {
+                            Scanner str36 = new Scanner(System.in);
+                            String cat_c = str36.nextLine();
+                            switch (cat_c) {
+                                case "AM":
+                                    drivingLicenceCategories_c.add(DrivingLicenceCategories.AM);
+                                    break;
+                                case "A1":
+                                    drivingLicenceCategories_c.add(DrivingLicenceCategories.A1);
+                                    break;
+                                case "A2":
+                                    drivingLicenceCategories_c.add(DrivingLicenceCategories.A2);
+                                    break;
+                                case "A":
+                                    drivingLicenceCategories_c.add(DrivingLicenceCategories.A);
+                                    break;
+                                case "B":
+                                    drivingLicenceCategories_c.add(DrivingLicenceCategories.B);
+                                    break;
+                                case "B1":
+                                    drivingLicenceCategories_c.add(DrivingLicenceCategories.B1);
+                                    break;
+                                case "BE":
+                                    drivingLicenceCategories_c.add(DrivingLicenceCategories.BE);
+                                    break;
+                                case "C1":
+                                    drivingLicenceCategories_c.add(DrivingLicenceCategories.C1);
+                                    break;
+                                case "C1E":
+                                    drivingLicenceCategories_c.add(DrivingLicenceCategories.C1E);
+                                    break;
+                                case "C":
+                                    drivingLicenceCategories_c.add(DrivingLicenceCategories.C);
+                                    break;
+                                case "CE":
+                                    drivingLicenceCategories_c.add(DrivingLicenceCategories.CE);
+                                    break;
+                                case "D1":
+                                    drivingLicenceCategories_c.add(DrivingLicenceCategories.D1);
+                                    break;
+                                case "D1E":
+                                    drivingLicenceCategories_c.add(DrivingLicenceCategories.D1E);
+                                    break;
+                                case "D":
+                                    drivingLicenceCategories_c.add(DrivingLicenceCategories.D);
+                                    break;
+                                case "DE":
+                                    drivingLicenceCategories_c.add(DrivingLicenceCategories.DE);
+                                    break;
+                            }
+                        }
+                        Driver driver_c = new Driver(personal_id_c, driver_fn_c, driver_ln_c, driver_date_c, gender_d_c, driver_id_c, phoneNumber_c, mail_c, driverLicenceDate_c, drivingLicenceCategories_c);
+                        companyService.addNewDriver(com_id, driver_c);
+                        cout("************************************************************************************************************************\n\n");
                         break;
 
+                    case 7:
+                        cout("************************************************************************************************************************\n\n");
 
+                        cout("Company id (Integer): ");
+                        Integer com_nr = new Scanner(System.in).nextInt();
+                        cout("Number of employees");
+                        Integer new_nr = new Scanner(System.in).nextInt();
+                        companyService.changeEmployeesNumber(com_nr, new_nr);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
 
+                    case 8:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Company id (Integer): ");
+                        Integer com_n = new Scanner(System.in).nextInt();
+                        cout("New name");
+                        Scanner str37 = new Scanner(System.in);
+                        String new_n = str37.nextLine();
+                        companyService.changeCompanyName(com_n, new_n);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 9:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Company id (Integer): ");
+                        Integer com_s = new Scanner(System.in).nextInt();
+                        companyService.sortDrivers(com_s);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 10:
+                        break;
 
                 }
+                break;
             case 2:
                 cout("************************************************************************************************************************\\n");
                 cout("Choose an option: \n\n");
@@ -447,7 +525,9 @@ public class Menu {
                 cout("3 - Display all clients\n");
                 cout("4 - Modify a client\n");
                 cout("5 - Delete a client\n");
-                cout("6 - Back\n");
+                cout("6 - Change phone number of a client\n");
+                cout("7 - Change mail of a client\n");
+                cout("8 - Back\n");
                 cout("Read the number associated with the desire option: ");
 
                 int choice_client_1 = new Scanner(System.in).nextInt();
@@ -460,19 +540,25 @@ public class Menu {
                         cout("Personal id (Integer): ");
                         Integer personal_id = new Scanner(System.in).nextInt();
                         cout("First name (String): ");
-                        String client_fn = String.valueOf(new Scanner(System.in));
+                        Scanner str37 = new Scanner(System.in);
+                        String client_fn = str37.nextLine();
                         cout("Last name (String): ");
-                        String client_ln = String.valueOf(new Scanner(System.in));
+                        Scanner str38 = new Scanner(System.in);
+                        String client_ln = str38.nextLine();
                         cout("Date of bird (String): ");
-                        String client_date = String.valueOf(new Scanner(System.in));
+                        Scanner str39 = new Scanner(System.in);
+                        String client_date = str39.nextLine();
                         cout("Gender (String): ");
-                        String gender_c = String.valueOf(new Scanner(System.in));
+                        Scanner str40 = new Scanner(System.in);
+                        String gender_c = str40.nextLine();
                         cout("Client id (Integer): ");
                         Integer client_id = new Scanner(System.in).nextInt();
                         cout("Phone Number (String): ");
-                        String phoneNumber = String.valueOf(new Scanner(System.in));
+                        Scanner str41 = new Scanner(System.in);
+                        String phoneNumber = str41.nextLine();
                         cout("Mail (String): ");
-                        String mail = String.valueOf(new Scanner(System.in));
+                        Scanner str42 = new Scanner(System.in);
+                        String mail = str42.nextLine();
 
                         Client client = new Client(personal_id, client_fn, client_ln, client_date, gender_c, client_id, phoneNumber, mail);
                         clientService.addOnlyOne(client);
@@ -512,19 +598,25 @@ public class Menu {
                         cout("Personal id (Integer): ");
                         Integer new_personal_id = new Scanner(System.in).nextInt();
                         cout("First name (String): ");
-                        String new_fn = String.valueOf(new Scanner(System.in));
+                        Scanner str43 = new Scanner(System.in);
+                        String new_fn = str43.nextLine();
                         cout("Last name (String): ");
-                        String new_ln = String.valueOf(new Scanner(System.in));
+                        Scanner str44 = new Scanner(System.in);
+                        String new_ln = str44.nextLine();
                         cout("Date of bird (String): ");
-                        String new_persona_date = String.valueOf(new Scanner(System.in));
+                        Scanner str45 = new Scanner(System.in);
+                        String new_persona_date = str45.nextLine();
                         cout("Gender (String): ");
-                        String new_gender = String.valueOf(new Scanner(System.in));
+                        Scanner str46 = new Scanner(System.in);
+                        String new_gender = str46.nextLine();
                         cout("Client id (Integer): ");
                         Integer new_client_id = new Scanner(System.in).nextInt();
                         cout("Phone Number (String): ");
-                        String new_phoneNumber = String.valueOf(new Scanner(System.in));
+                        Scanner str47 = new Scanner(System.in);
+                        String new_phoneNumber = str47.nextLine();
                         cout("Mail (String): ");
-                        String new_mail = String.valueOf(new Scanner(System.in));
+                        Scanner str48 = new Scanner(System.in);
+                        String new_mail = str48.nextLine();
 
                         Client client_m = new Client(new_personal_id, new_fn, new_ln, new_persona_date, new_gender, new_client_id, new_phoneNumber, new_mail);
                         clientService.modifyById(id_m, client_m);
@@ -540,10 +632,35 @@ public class Menu {
                         cout("************************************************************************************************************************\n\n");
 
                         break;
+
                     case 6:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Client id (Integer): ");
+                        Integer client_ph = new Scanner(System.in).nextInt();
+                        cout("New phone number (String):");
+                        Scanner str49 = new Scanner(System.in);
+                        String new_ph = str49.nextLine();
+                        clientService.changePhoneNumber(client_ph, new_ph);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+                    case 7:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Client id (Integer): ");
+                        Integer id_nm = new Scanner(System.in).nextInt();
+                        cout("New mail (String):");
+                        Scanner str50 = new Scanner(System.in);
+                        String client_nm = str50.nextLine();
+                        clientService.changeMail(id_nm, client_nm);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 8:
                         break;
 
                 }
+                break;
 
             case 3:
                 cout("************************************************************************************************************************\\n");
@@ -553,7 +670,10 @@ public class Menu {
                 cout("3 - Display all drivers\n");
                 cout("4 - Modify a driver\n");
                 cout("5 - Delete a driver\n");
-                cout("6 - Back\n");
+                cout("6 - Change phone number of a driver\n");
+                cout("7 - Change mail of a driver\n");
+                cout("8 - Add new licence driver categories\n");
+                cout("9 - Back\n");
                 cout("Read the number associated with the desire option: ");
 
                 int choice_driver_1 = new Scanner(System.in).nextInt();
@@ -568,21 +688,28 @@ public class Menu {
                         cout("Personal id (Integer): ");
                         Integer personal_id = new Scanner(System.in).nextInt();
                         cout("First name (String): ");
-                        String driver_fn = String.valueOf(new Scanner(System.in));
+                        Scanner str51 = new Scanner(System.in);
+                        String driver_fn = str51.nextLine();
                         cout("Last name (String): ");
-                        String driver_ln = String.valueOf(new Scanner(System.in));
+                        Scanner str52 = new Scanner(System.in);
+                        String driver_ln = str52.nextLine();
                         cout("Date of bird (String): ");
-                        String driver_date = String.valueOf(new Scanner(System.in));
+                        Scanner str53 = new Scanner(System.in);
+                        String driver_date = str53.nextLine();
                         cout("Gender (String): ");
-                        String gender_d = String.valueOf(new Scanner(System.in));
+                        Scanner str54 = new Scanner(System.in);
+                        String gender_d = str54.nextLine();
                         cout("Driver id (Integer): ");
                         Integer driver_id = new Scanner(System.in).nextInt();
                         cout("Phone Number (String): ");
-                        String phoneNumber = String.valueOf(new Scanner(System.in));
+                        Scanner str55 = new Scanner(System.in);
+                        String phoneNumber = str55.nextLine();
                         cout("Mail (String): ");
-                        String mail = String.valueOf(new Scanner(System.in));
+                        Scanner str56 = new Scanner(System.in);
+                        String mail = str56.nextLine();
                         cout("Driver licence date (String): ");
-                        String driverLicenceDate = String.valueOf(new Scanner(System.in));
+                        Scanner str57 = new Scanner(System.in);
+                        String driverLicenceDate = str57.nextLine();
 
 
                         Set<DrivingLicenceCategories> drivingLicenceCategories = new HashSet<>();
@@ -590,7 +717,8 @@ public class Menu {
                         Integer numberLicenceCategories = new Scanner(System.in).nextInt();
 
                         for (int j = 0; j < numberLicenceCategories; j++) {
-                            String cat = String.valueOf(new Scanner(System.in));
+                            Scanner str58 = new Scanner(System.in);
+                            String cat = str58.nextLine();
                             switch (cat) {
                                 case "AM":
                                     drivingLicenceCategories.add(DrivingLicenceCategories.AM);
@@ -682,21 +810,28 @@ public class Menu {
                         cout("Personal id (Integer): ");
                         Integer new_personal_id = new Scanner(System.in).nextInt();
                         cout("First name (String): ");
-                        String new_driver_fn = String.valueOf(new Scanner(System.in));
+                        Scanner str59 = new Scanner(System.in);
+                        String new_driver_fn = str59.nextLine();
                         cout("Last name (String): ");
-                        String new_driver_ln = String.valueOf(new Scanner(System.in));
+                        Scanner str60 = new Scanner(System.in);
+                        String new_driver_ln = str60.nextLine();
                         cout("Date of bird (String): ");
-                        String new_driver_date = String.valueOf(new Scanner(System.in));
+                        Scanner str61 = new Scanner(System.in);
+                        String new_driver_date = str61.nextLine();
                         cout("Gender (String): ");
-                        String new_gender_d = String.valueOf(new Scanner(System.in));
+                        Scanner str62 = new Scanner(System.in);
+                        String new_gender_d = str62.nextLine();
                         cout("Driver id (Integer): ");
                         Integer new_driver_id = new Scanner(System.in).nextInt();
                         cout("Phone Number (String): ");
-                        String new_phoneNumber = String.valueOf(new Scanner(System.in));
+                        Scanner str63 = new Scanner(System.in);
+                        String new_phoneNumber = str63.nextLine();
                         cout("Mail (String): ");
-                        String new_mail = String.valueOf(new Scanner(System.in));
+                        Scanner str64 = new Scanner(System.in);
+                        String new_mail = str64.nextLine();
                         cout("Driver licence date (String): ");
-                        String new_driverLicenceDate = String.valueOf(new Scanner(System.in));
+                        Scanner str65 = new Scanner(System.in);
+                        String new_driverLicenceDate = str65.nextLine();
 
 
                         Set<DrivingLicenceCategories> new_drivingLicenceCategories = new HashSet<>();
@@ -704,7 +839,8 @@ public class Menu {
                         Integer new_numberLicenceCategories = new Scanner(System.in).nextInt();
 
                         for (int j = 0; j < new_numberLicenceCategories; j++) {
-                            String cat = String.valueOf(new Scanner(System.in));
+                            Scanner str66 = new Scanner(System.in);
+                            String cat = str66.nextLine();
                             switch (cat) {
                                 case "AM":
                                     new_drivingLicenceCategories.add(DrivingLicenceCategories.AM);
@@ -767,10 +903,104 @@ public class Menu {
                         cout("************************************************************************************************************************\n\n");
 
                         break;
+
                     case 6:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Driver id (Integer): ");
+                        Integer driver_ph = new Scanner(System.in).nextInt();
+                        cout("New phone number (String):");
+                        Scanner str67 = new Scanner(System.in);
+                        String new_ph_d = str67.nextLine();
+                        driverService.changePhoneNumber(driver_ph, new_ph_d);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+                    case 7:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Driver id (Integer): ");
+                        Integer id_nm_d = new Scanner(System.in).nextInt();
+                        cout("New mail (String):");
+                        Scanner str68 = new Scanner(System.in);
+                        String client_nm_d = str68.nextLine();
+                        driverService.changeMail(id_nm_d, client_nm_d);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 8:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Driver id (Integer): ");
+                        Integer id_nl_d = new Scanner(System.in).nextInt();
+                        Set<DrivingLicenceCategories> drl = new HashSet<>();
+
+                        cout("Name of licence categories");
+                        Scanner str69 = new Scanner(System.in);
+                        String new_l = str69.nextLine();
+                        switch (new_l) {
+                            case "AM":
+                                drl.add(DrivingLicenceCategories.AM);
+                                break;
+                            case "A1":
+                                drl.add(DrivingLicenceCategories.A1);
+                                break;
+                            case "A2":
+                                drl.add(DrivingLicenceCategories.A2);
+                                break;
+                            case "A":
+                                drl.add(DrivingLicenceCategories.A);
+                                break;
+                            case "B":
+                                drl.add(DrivingLicenceCategories.B);
+                                break;
+                            case "B1":
+                                drl.add(DrivingLicenceCategories.B1);
+                                break;
+                            case "BE":
+                                drl.add(DrivingLicenceCategories.BE);
+                                break;
+                            case "C1":
+                                drl.add(DrivingLicenceCategories.C1);
+                                break;
+                            case "C1E":
+                                drl.add(DrivingLicenceCategories.C1E);
+                                break;
+                            case "C":
+                                drl.add(DrivingLicenceCategories.C);
+                                break;
+                            case "CE":
+                                drl.add(DrivingLicenceCategories.CE);
+                                break;
+                            case "D1":
+                                drl.add(DrivingLicenceCategories.D1);
+                                break;
+                            case "D1E":
+                                drl.add(DrivingLicenceCategories.D1E);
+                                break;
+                            case "D":
+                                drl.add(DrivingLicenceCategories.D);
+                                break;
+                            case "DE":
+                                drl.add(DrivingLicenceCategories.DE);
+                                break;
+                        }
+
+                        for(Driver driverr: driverService.getAll()) {
+                            if (driverr.getDriverId() == id_nl_d) {
+                                driverService.removeById(id_nl_d);
+                                Driver new_dr = new Driver(driverr.getPersonId(), driverr.getFirstName(), driverr.getLastName(), driverr.getDateOfBird(),driverr.getGender(),driverr.getDriverId(), driverr.getPhoneNumber(), driverr.getMail(),driverr.getDriverLicenceDate(), drl);
+                                driverService.addOnlyOne(new_dr);
+                            }
+                        }
+
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 9:
                         break;
 
                 }
+                break;
             case 4:
                 cout("************************************************************************************************************************\\n");
                 cout("Choose an option: \n\n");
@@ -779,7 +1009,8 @@ public class Menu {
                 cout("3 - Display all cars\n");
                 cout("4 - Modify a car\n");
                 cout("5 - Delete a car\n");
-                cout("6 - Back\n");
+                cout("6 - Change color\n");
+                cout("7 - Back\n");
                 cout("Read the number associated with the desire option: ");
 
                 int choice_car_1 = new Scanner(System.in).nextInt();
@@ -796,13 +1027,17 @@ public class Menu {
                         cout("Driver id (Integer): ");
                         Integer driver_id = new Scanner(System.in).nextInt();
                         cout("Brand (String): ");
-                        String brand = String.valueOf(new Scanner(System.in));
+                        Scanner str70 = new Scanner(System.in);
+                        String brand = str70.nextLine();
                         cout("Model (String): ");
-                        String model = String.valueOf(new Scanner(System.in));
+                        Scanner str71 = new Scanner(System.in);
+                        String model = str71.nextLine();
                         cout("IdentificationNumber (String): ");
-                        String identificationNumber = String.valueOf(new Scanner(System.in));
+                        Scanner str72 = new Scanner(System.in);
+                        String identificationNumber = str72.nextLine();
                         cout("Color (String): ");
-                        String color = String.valueOf(new Scanner(System.in));
+                        Scanner str73 = new Scanner(System.in);
+                        String color = str73.nextLine();
                         Color real_color = null;
                         switch (color) {
                             case "WHITE":
@@ -886,13 +1121,17 @@ public class Menu {
                         cout("Driver id (Integer): ");
                         Integer new_driver_id = new Scanner(System.in).nextInt();
                         cout("Brand (String): ");
-                        String new_brand = String.valueOf(new Scanner(System.in));
+                        Scanner str74 = new Scanner(System.in);
+                        String new_brand = str74.nextLine();
                         cout("Model (String): ");
-                        String new_model = String.valueOf(new Scanner(System.in));
+                        Scanner str75 = new Scanner(System.in);
+                        String new_model = str75.nextLine();
                         cout("IdentificationNumber (String): ");
-                        String new_identificationNumber = String.valueOf(new Scanner(System.in));
+                        Scanner str76 = new Scanner(System.in);
+                        String new_identificationNumber = str76.nextLine();
                         cout("Color (String): ");
-                        String new_color = String.valueOf(new Scanner(System.in));
+                        Scanner str77 = new Scanner(System.in);
+                        String new_color = str77.nextLine();
                         Color new_real_color = null;
                         switch (new_color) {
                             case "WHITE":
@@ -941,9 +1180,54 @@ public class Menu {
                         cout("************************************************************************************************************************\n\n");
 
                         break;
+
                     case 6:
+                        cout("Car id (Integer): ");
+                        Integer id_car = new Scanner(System.in).nextInt();
+                        cout("New color (String): ");
+                        Scanner str78 = new Scanner(System.in);
+                        String color1 = str78.nextLine();
+                        Color real_color1 = null;
+                        switch (color1) {
+                            case "WHITE":
+                                real_color1 = Color.WHITE;
+                                break;
+                            case "BLACK" :
+                                real_color1 = Color.BLACK;
+                                break;
+                            case "RED" :
+                                real_color1 = Color.RED;
+                                break;
+                            case "BLUE" :
+                                real_color1 = Color.BLUE;
+                                break;
+                            case "YELLOW" :
+                                real_color1 = Color.YELLOW;
+                                break;
+                            case "GREEN" :
+                                real_color1 = Color.GREEN;
+                                break;
+                            case "PURPLE" :
+                                real_color1 = Color.PURPLE;
+                                break;
+                            case "BROWN" :
+                                real_color1 = Color.BROWN;
+                                break;
+                            case "GREY" :
+                                real_color1 = Color.GREY;
+                                break;
+                            case "PINK" :
+                                real_color1 = Color.PINK;
+                                break;
+                        }
+                        carService.changeColor(id_car, real_color1);
+                        cout("************************************************************************************************************************\\n");
+                        break;
+
+                    case 7:
                         break;
                 }
+                break;
             case 5:
                 cout("************************************************************************************************************************\\n");
                 cout("Choose an option: \n\n");
@@ -967,9 +1251,11 @@ public class Menu {
                         cout("Location id (Integer): ");
                         Integer id_l = new Scanner(System.in).nextInt();
                         cout("City (String): ");
-                        String city = String.valueOf(new Scanner(System.in));
+                        Scanner str79 = new Scanner(System.in);
+                        String city = str79.nextLine();
                         cout("Street (String): ");
-                        String street = String.valueOf(new Scanner(System.in));
+                        Scanner str80 = new Scanner(System.in);
+                        String street = str80.nextLine();
                         cout("Number (Integer): ");
                         Integer number = new Scanner(System.in).nextInt();
 
@@ -1018,9 +1304,11 @@ public class Menu {
                         cout("Location id (Integer): ");
                         Integer new_id_l = new Scanner(System.in).nextInt();
                         cout("City (String): ");
-                        String new_city = String.valueOf(new Scanner(System.in));
+                        Scanner str81 = new Scanner(System.in);
+                        String new_city = str81.nextLine();
                         cout("Street (String): ");
-                        String new_street = String.valueOf(new Scanner(System.in));
+                        Scanner str82 = new Scanner(System.in);
+                        String new_street = str82.nextLine();
                         cout("Number (Integer): ");
                         Integer new_number = new Scanner(System.in).nextInt();
 
@@ -1041,8 +1329,174 @@ public class Menu {
                     case 6:
                         break;
                 }
+                break;
 
             case 6:
+                cout("************************************************************************************************************************\\n");
+                cout("Choose an option: \n\n");
+                cout("1 - Add a order\n");
+                cout("2 - Display o order by id\n");
+                cout("3 - Display all orders\n");
+                cout("4 - Modify a order\n");
+                cout("5 - Delete a order\n");
+                cout("6 - Canceled order\n");
+                cout("7 - Change order location\n");
+                cout("8 - Add order delay\n");
+                cout("9 - Back\n");
+                cout("Read the number associated with the desire option: ");
+
+                int choice_order_1 = new Scanner(System.in).nextInt();
+
+                cout("\n\n");
+                cout("************************************************************************************************************************\n\n");
+
+                switch (choice_order_1) {
+                    case 1:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Order id (Integer): ");
+                        Integer order_id = new Scanner(System.in).nextInt();
+                        cout("Client id (Integer): ");
+                        Integer client_id_o = new Scanner(System.in).nextInt();
+                        cout("Driver id (Integer): ");
+                        Integer driver_id_o = new Scanner(System.in).nextInt();
+                        cout("Location id (Integer): ");
+                        Integer location_id_o = new Scanner(System.in).nextInt();
+                        cout("Order price(Double): ");
+                        Double price = new Scanner(System.in).nextDouble();
+                        cout("Driver tip price(Double): ");
+                        Double driver_t = new Scanner(System.in).nextDouble();
+                        cout("Ordering time (String): ");
+                        Scanner str83 = new Scanner(System.in);
+                        String o_time = str83.nextLine();
+                        cout("Receiving time (String): ");
+                        Scanner str84 = new Scanner(System.in);
+                        String r_time = str84.nextLine();
+
+                        Order order = new Order(order_id, client_id_o, driver_id_o, location_id_o, price, driver_t, o_time, r_time);
+                        orderService.addOnlyOne(order);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 2:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Order id review:");
+                        Integer Id_ord = new Scanner(System.in).nextInt();
+                        Optional <Order> ord_aff = orderService.getById(Id_ord);
+
+                        if(ord_aff.isPresent()) {
+
+                            cout("************************************************************************************************************************\n\n");
+                            cout(ord_aff);
+                            cout("************************************************************************************************************************\n\n");
+
+                        }
+                        else {
+                            cout("Id does't exist!");
+                        }
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 3:
+                        List<Order> list = orderService.getAll();
+
+                        cout("************************************************************************************************************************\n\n");
+
+                        for (Order ord : list) {
+                            cout(ord);
+                        }
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 4:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Order id (Integer): ");
+                        Integer new_id_ord = new Scanner(System.in).nextInt();
+                        cout("Read new date:");
+                        cout("Order id (Integer): ");
+                        Integer new_order_id = new Scanner(System.in).nextInt();
+                        cout("Client id (Integer): ");
+                        Integer new_client_id_o = new Scanner(System.in).nextInt();
+                        cout("Driver id (Integer): ");
+                        Integer new_driver_id_o = new Scanner(System.in).nextInt();
+                        cout("Location id (Integer): ");
+                        Integer new_location_id_o = new Scanner(System.in).nextInt();
+                        cout("Order price(Double): ");
+                        Double new_price = new Scanner(System.in).nextDouble();
+                        cout("Driver tip price(Double): ");
+                        Double new_driver_t = new Scanner(System.in).nextDouble();
+                        cout("Ordering time (String): ");
+                        Scanner str85 = new Scanner(System.in);
+                        String new_o_time = str85.nextLine();
+                        cout("Receiving time (String): ");
+                        Scanner str86 = new Scanner(System.in);
+                        String new_r_time = str86.nextLine();
+
+                        Order new_order = new Order(new_order_id, new_client_id_o, new_driver_id_o, new_location_id_o, new_price, new_driver_t, new_o_time, new_r_time);
+                        orderService.modifyById(new_id_ord, new_order);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 5:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Order id (Integer): ");
+                        Integer id_ordd = new Scanner(System.in).nextInt();
+                        orderService.removeById(id_ordd);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 6:
+                        cout("Order id (Integer): ");
+                        Integer order_id_c = new Scanner(System.in).nextInt();
+                        orderService.orderCancelated(order_id_c);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 7:
+                        cout("Order id (Integer): ");
+                        Integer order_id_l = new Scanner(System.in).nextInt();
+
+                        cout("Location id (Integer): ");
+                        Integer id_l = new Scanner(System.in).nextInt();
+                        cout("City (String): ");
+                        Scanner str87 = new Scanner(System.in);
+                        String city = str87.nextLine();
+                        cout("Street (String): ");
+                        Scanner str88 = new Scanner(System.in);
+                        String street = str88.nextLine();
+                        cout("Number (Integer): ");
+                        Integer number = new Scanner(System.in).nextInt();
+                        Location loc_o = new Location(id_l, city, street, number);
+
+                        orderService.changeOrderLocation(order_id_l, loc_o);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 8:
+                        cout("Order id (Integer): ");
+                        Integer order_id_d = new Scanner(System.in).nextInt();
+                        cout("New order receiving (String): ");
+                        Scanner str89 = new Scanner(System.in);
+                        String new_r = str89.nextLine();
+
+                        for (Order ord : orderService.getAll()) {
+                            if (ord.getOrderId() == order_id_d) {
+                                Order new_ord = new Order(ord.getOrderId(), ord.getClientId(), ord.getDriverId(), ord.getLocationId(), ord.getPrice(), ord.getDriverTip(), ord.getOrderingTime(), new_r);
+                                orderService.modifyById(order_id_d, new_ord);
+                                break;
+                            }
+                        }
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 9:
+                        break;
+
+                }
+                break;
 
             case 7:
                 cout("************************************************************************************************************************\\n");
@@ -1070,8 +1524,9 @@ public class Menu {
                         Integer id_ord = new Scanner(System.in).nextInt();
                         cout("Number of star id (Integer): ");
                         Integer nr_stars = new Scanner(System.in).nextInt();
-                        cout("Complaints (Integer): ");
-                        String complaints = String.valueOf(new Scanner(System.in));
+                        cout("Complaints (String): ");
+                        Scanner str90 = new Scanner(System.in);
+                        String complaints = str90.nextLine();
 
                         OrderReview ord_rev = new OrderReview(id_r, id_ord, nr_stars, complaints);
                         orderReviewService.addOnlyOne(ord_rev);
@@ -1121,8 +1576,9 @@ public class Menu {
                         Integer new_id_ord = new Scanner(System.in).nextInt();
                         cout("Number of star id (Integer): ");
                         Integer new_nr_stars = new Scanner(System.in).nextInt();
-                        cout("Complaints (Integer): ");
-                        String new_complaints = String.valueOf(new Scanner(System.in));
+                        cout("Complaints (String): ");
+                        Scanner str91 = new Scanner(System.in);
+                        String new_complaints = str91.nextLine();
 
                         OrderReview new_or = new OrderReview(new_id_r, new_id_ord, new_nr_stars, new_complaints);
                         orderReviewService.modifyById(new_id_or, new_or);
@@ -1142,8 +1598,114 @@ public class Menu {
                         break;
 
                 }
+                break;
 
             case 8:
+                cout("************************************************************************************************************************\\n");
+                cout("Choose an option: \n\n");
+                cout("1 - Add a person\n");
+                cout("2 - Display o person by id\n");
+                cout("3 - Display all persons\n");
+                cout("4 - Modify a person\n");
+                cout("5 - Delete a person\n");
+                cout("6 - Back\n");
+                cout("Read the number associated with the desire option: ");
+
+                int choice_person_1 = new Scanner(System.in).nextInt();
+
+                cout("\n\n");
+                cout("************************************************************************************************************************\n\n");
+
+                switch (choice_person_1) {
+                    case 1:
+                        cout("Personal id (Integer): ");
+                        Integer person_id = new Scanner(System.in).nextInt();
+                        cout("First name (String): ");
+                        Scanner str92 = new Scanner(System.in);
+                        String person_fn = str92.nextLine();
+                        cout("Last name (String): ");
+                        Scanner str93 = new Scanner(System.in);
+                        String person_ln = str93.nextLine();
+                        cout("Date of bird (String): ");
+                        Scanner str94 = new Scanner(System.in);
+                        String person_date = str94.nextLine();
+                        cout("Gender (String): ");
+                        Scanner str95 = new Scanner(System.in);
+                        String gender_p = str95.nextLine();
+
+                        Person person = new Person(person_id, person_fn, person_ln, person_date, gender_p);
+                        personService.addOnlyOne(person);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 2:
+                        cout("Person Id:");
+                        Integer Id_p = new Scanner(System.in).nextInt();
+                        Optional <Person> person_aff = personService.getById(Id_p);
+
+                        if(person_aff.isPresent()) {
+
+                            cout("************************************************************************************************************************\n\n");
+                            cout(person_aff);
+                            cout("************************************************************************************************************************\n\n");
+
+                        }
+                        else {
+                            cout("Id does't exist!");
+                        }
+                        break;
+
+                    case 3:
+                        List<Person> list = personService.getAll();
+
+                        cout("************************************************************************************************************************\n\n");
+
+                        for (Person per : list) {
+                            cout(per);
+                        }
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 4:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Personal id (Integer): ");
+                        Integer id_read = new Scanner(System.in).nextInt();
+                        cout("Read new date:");
+                        cout("Personal id (Integer): ");
+                        Integer new_person_id = new Scanner(System.in).nextInt();
+                        cout("First name (String): ");
+                        Scanner str96 = new Scanner(System.in);
+                        String new_person_fn = str96.nextLine();
+                        cout("Last name (String): ");
+                        Scanner str97 = new Scanner(System.in);
+                        String new_person_ln = str97.nextLine();
+                        cout("Date of bird (String): ");
+                        Scanner str98 = new Scanner(System.in);
+                        String new_person_date = str98.nextLine();
+                        cout("Gender (String): ");
+                        Scanner str99 = new Scanner(System.in);
+                        String new_gender_p = str99.nextLine();
+
+                        Person newPerson = new Person(new_person_id, new_person_fn, new_person_ln, new_person_date, new_gender_p);
+                        personService.modifyById(id_read, newPerson);
+                        cout("************************************************************************************************************************\n\n");
+                        break;
+
+                    case 5:
+                        cout("************************************************************************************************************************\n\n");
+
+                        cout("Person id (Integer): ");
+                        Integer id_pp = new Scanner(System.in).nextInt();
+                        personService.removeById(id_pp);
+                        cout("************************************************************************************************************************\n\n");
+
+                        break;
+                    case 6:
+                        break;
+
+                }
+                break;
 
             case 9:
                 break;

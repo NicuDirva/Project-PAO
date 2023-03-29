@@ -18,7 +18,6 @@ public class Order {
     private String OrderingTime;
     private String ReceivingTime;
     private Boolean Canceled;
-    private Integer DiscountCouponId;
 
     public Order(Integer orderId, Integer clientId, Integer driverId, Integer locationId, Double price, Double driverTip, String orderingTime, String receivingTime) {
         OrderId = orderId;
