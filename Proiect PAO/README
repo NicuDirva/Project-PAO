@@ -1,0 +1,13 @@
+In cadrul proiectului am implementat meniul din care poti accesa operatii pentru clasele Car, Person, Client, Location putand accesa in fiecare clasa
+comenzi precum:
+-adaugarea unui obiect nou
+-afisarea unui obiect dupa id
+-afisarea tuturor obiectelor din baza de date
+-modificarea unui obiect dupa id
+-stergerea unui obiect dupa id
+
+De fiecare data cand accesam o comanda din meniu se va scrie in "commands_executed" comanda executata, data si ora la care s-a efectuat.
+
+Proiectul foloseste o baza de date Postgres care are 4 tabele: Car, Person, Client si Location.
+
+Repository-ule se acceseaza prin intermediul serviciilor.
