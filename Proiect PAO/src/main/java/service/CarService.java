@@ -24,7 +24,4 @@ public interface CarService {
 
     void modifyById(Integer id, Car newcar);
 
-    void changeColor(Integer Id, Color newColor);
-
-
 }

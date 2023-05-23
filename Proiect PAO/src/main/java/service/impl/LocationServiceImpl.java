@@ -1,5 +1,8 @@
 package service.impl;
 
+import Repository.ClientRepository;
+import Repository.LocationRepository;
+import lombok.RequiredArgsConstructor;
 import model.Driver;
 import model.Location;
 import service.LocationService;
@@ -9,38 +12,37 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@RequiredArgsConstructor
+
 public class LocationServiceImpl implements LocationService {
-    private static List<Location> LocationList = new ArrayList<>();
+    private final LocationRepository locationRepository;
     @Override
     public Optional<Location> getById(Integer Id) {
 
-        return LocationList.stream()
-                .filter(object -> Id.equals(object.getLocationId()))
-                .findFirst();
+        return locationRepository.getObjectById(Id);
     }
     @Override
     public List<Location> getAll() {
-        return LocationList;
+
+        return locationRepository.getAll();
     };
 
 
     @Override
     public void addOnlyOne(Location location) {
-        LocationList.add(location);
+
+        locationRepository.addNewObject(location);
     }
 
     @Override
     public void removeById(Integer Id) {
-        LocationList = LocationList.stream()
-                .filter(object -> !Id.equals(object.getLocationId()))
-                .collect(Collectors.toList());
+        locationRepository.deleteObjectById(Id);
     }
 
     @Override
     public void modifyById(Integer Id, Location newLocation) {
 
-        removeById(Id);
-        addOnlyOne(newLocation);
+        locationRepository.updateObjectById(Id, newLocation);
 
     }
 }

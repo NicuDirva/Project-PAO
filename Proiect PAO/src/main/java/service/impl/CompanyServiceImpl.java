@@ -24,8 +24,6 @@ public class CompanyServiceImpl implements CompanyService {
         return CompanyList;
     }
 
-    ;
-
 
     @Override
     public void addOnlyOne(Company company) {

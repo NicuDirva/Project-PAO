@@ -17,6 +17,4 @@ public interface ClientService{
 
     void modifyById(Integer id, Client newclient);
 
-    void changePhoneNumber(Integer Id, String newPhoneNumber);
-    void changeMail(Integer Id, String newMail);
 }

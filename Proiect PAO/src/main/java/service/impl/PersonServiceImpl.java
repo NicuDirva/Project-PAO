@@ -1,5 +1,8 @@
 package service.impl;
 
+import Repository.ClientRepository;
+import Repository.PersonRepository;
+import lombok.RequiredArgsConstructor;
 import model.Location;
 import model.Person;
 import service.PersonService;
@@ -8,39 +11,37 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+@RequiredArgsConstructor
 
 public class PersonServiceImpl implements PersonService{
-    private static List<Person> PersonList = new ArrayList<>();
+
+    private final PersonRepository personRepository;
     @Override
     public Optional<Person> getById(Integer Id) {
 
-        return PersonList.stream()
-                .filter(object -> Id.equals(object.getPersonId()))
-                .findFirst();
+        return personRepository.getObjectById(Id);
     }
     @Override
     public List<Person> getAll() {
-        return PersonList;
+        return personRepository.getAll();
     };
 
 
     @Override
     public void addOnlyOne(Person person) {
-        PersonList.add(person);
+
+        personRepository.addNewObject(person);
     }
 
     @Override
     public void removeById(Integer Id) {
-        PersonList = PersonList.stream()
-                .filter(object -> !Id.equals(object.getPersonId()))
-                .collect(Collectors.toList());
+        personRepository.deleteObjectById(Id);
     }
 
     @Override
     public void modifyById(Integer Id, Person newPerson) {
 
-        removeById(Id);
-        addOnlyOne(newPerson);
+        personRepository.updateObjectById(Id, newPerson);
 
     }
 }
