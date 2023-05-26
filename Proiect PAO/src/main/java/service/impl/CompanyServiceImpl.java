@@ -85,7 +85,17 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public void sortDrivers(Integer Id) {
-        for (Company company : CompanyList) {
+        /*for (Company company : CompanyList) {
+            if (company.getCompanyId() == Id) {
+                List<Driver> drivers = company.getDriverList();
+                Collections.sort(drivers, Comparator.comparing(d -> d.getDrivingLicenceCategories().size()));
+                Collections.reverse(drivers);
+                company.setDriverList(drivers);
+            }
+        }*/
+        Iterator<Company> iterator = CompanyList.iterator();
+        while (iterator.hasNext()) {
+            Company company = iterator.next();
             if (company.getCompanyId() == Id) {
                 List<Driver> drivers = company.getDriverList();
                 Collections.sort(drivers, Comparator.comparing(d -> d.getDrivingLicenceCategories().size()));

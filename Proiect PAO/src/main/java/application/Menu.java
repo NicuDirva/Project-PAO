@@ -25,11 +25,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Menu {
 
     static final CsvWriter CSV_WRITER = CsvWriter.getInstance();
+    private static final Logger LOGGER = Logger.getLogger(Menu.class.getName());
     static Menu INSTANCE;
     CarService carService;
     PersonService personService;
@@ -590,6 +593,7 @@ public class Menu {
             }
 
             if (choice == 5) {
+                LOGGER.log(Level.INFO, "La revedere");
                 glb = false;
             }
 
